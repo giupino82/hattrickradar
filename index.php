@@ -1,22 +1,40 @@
 <?php
 	require_once 'PHT/autoload.php';
-	$config = array(
-		'CONSUMER_KEY' => 'xxxxxxxxxxxxxx',
-		'CONSUMER_SECRET' => 'xxxxxxxxxxxxx'
-	);
-	$HT = new \PHT\Connection($config);
-	
-	//login
-	$auth = $HT->getPermanentAuthorization('http://your-server/callback-page.php'); // put your own url :)
-	if ($auth === false) {
-		// handle failed connection
-		echo "Impossible to initiate chpp connection";
-		exit();
+	session_start();
+	if(isset($_SESSION['tmpToken'])){
+		$config = array(
+			'CONSUMER_KEY' => '6IwH8O5NhNh3xpQBdhmia2',
+			'CONSUMER_SECRET' => 'r4qCnrdiNiNgNhIEfRKUKmhfHafgbJ9k6Iu2VZHeeYj',
+			//'CACHE' => 'apc',
+			'LOG_TYPE' => 'file',
+			'LOG_LEVEL' => \PHT\Log\Level::DEBUG,
+			'LOG_FILE' => __DIR__ . '/pht.log'
+		);
+
+		$HT = new \PHT\Connection($config);
+		// retrive the $tmpToken saved in previous step
+		$tmpToken = $_SESSION['tmpToken'];
+		$access = $HT->getChppAccess($tmpToken, $_REQUEST['oauth_token'], $_REQUEST['oauth_verifier']);
+		if ($access === false) {
+			// handle failed connection
+			echo "Impossible to confirm chpp connection";
+			exit();
+		}
+		// if you want to save user credentials for future use
+		// do it now by saving $access->oauthToken and $access->oauthTokenSecret
+		// then you can request xml data
+		$config['OAUTH_TOKEN'] = $access->oauthToken;
+		$config['OAUTH_TOKEN_SECRET'] = $access->oauthTokenSecret;
+		$HT = new \PHT\PHT($config);
+		$_SESSION['HT']=$HT;
+		
+		
+		
+		$player = $HT->getSeniorPlayer('407708616');
+		echo $player->getStamina().'<br/>';
+		echo $player->hasMotherClubBonus();
+		
 	}
-	$tmpToken = $auth->temporaryToken; // save this token somewhere (session, database, file, ...) it's needed in next step
-	header('Location: ' . $auth->url); // redirect to hattrick login page, or get the url and show a link on your site
-	exit();
-	//endlogin
 ?>
 
 
@@ -53,7 +71,7 @@
   </head>
   <body>
    
-    <!--div class="header-area">
+    <!--<div class="header-area">
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
@@ -128,7 +146,7 @@
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="index.html">Home</a></li>
                         <li><a href="compare-player.html">Compare players</a></li>
-						<li><a href="#">Login</a></li>
+						<li><a href="login.php">Login</a></li>
                         <li><a href="#">Contact</a></li>
                     </ul>
                 </div>  
@@ -225,7 +243,7 @@
         <div class="zigzag-bottom"></div>
         <div class="container">
             <div class="row">
-			  <a href="radar.html"  style="color:white">
+			  <a href="radar.php"  style="color:white">
                 <div class="col-md-4 col-sm-6">
                     <div class="single-promo">
                         <i class="fa fa-exchange"></i>
@@ -233,7 +251,7 @@
                     </div>
                 </div>
               </a>
-			  <a href="radar.html" style="color:white">
+			  <a href="radar.php" style="color:white">
 				<div class="col-md-4 col-sm-6">
                     <div class="single-promo">
                         <i class="fa fa-exchange"></i>
@@ -241,7 +259,7 @@
                     </div>
                 </div>
 			  </a>
-			  <a href="radar.html" style="color:white">
+			  <a href="radar.php" style="color:white">
                 <div class="col-md-4 col-sm-6">
                     <div class="single-promo">
                         <i class="fa fa-exchange"></i>
