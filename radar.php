@@ -32,50 +32,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body>
-   
-    <!--div class="header-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="user-menu">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
-                            <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
-                            <li><a href="cart.html"><i class="fa fa-user"></i> My Cart</a></li>
-                            <li><a href="checkout.html"><i class="fa fa-user"></i> Checkout</a></li>
-                            <li><a href="#"><i class="fa fa-user"></i> Login</a></li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="header-right">
-                        <ul class="list-unstyled list-inline">
-                            <li class="dropdown dropdown-small">
-                                <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><span class="key">currency :</span><span class="value">USD </span><b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">USD</a></li>
-                                    <li><a href="#">INR</a></li>
-                                    <li><a href="#">GBP</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="dropdown dropdown-small">
-                                <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><span class="key">language :</span><span class="value">English </span><b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">English</a></li>
-                                    <li><a href="#">French</a></li>
-                                    <li><a href="#">German</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div--> <!-- End header area -->
-    
+  <body>    
     <div class="site-branding-area">
         <div class="container">
             <div class="row">
@@ -84,12 +41,6 @@
                         <h1><a href="index.html">HT<span>Radar</span></a></h1>
                     </div>
                 </div>
-                
-                <!--div class="col-sm-6">
-                    <div class="shopping-item">
-                        <a href="cart.html">Cart - <span class="cart-amunt">$800</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
-                    </div>
-                </div-->
             </div>
         </div>
     </div> <!-- End site branding area -->
@@ -131,38 +82,84 @@
     
         <div class="container">
             <div class="row">
-			  <div class="col-md-3" id="marketPlayer1">
-			   <br>
-				<div class="form-group">
-					<label for="pID1">Player ID</label>
-					<input type="text" class="pID1" id="pID1" style="font-size: x-small"/>
-					<span class="glyphicon glyphicon-play" aria-hidden="true" style="size:20px" onclick="retrieveMarketPlayer(1)"></span>
+			
+			  <div class="col-md-3">
+				 <br>
+				 <div class="radio">
+					 <label><input type="radio" name="optradio" selected>Manual</label>
+				 </div>
+				 <div class="radio">
+					 <label><input type="radio" name="optradio">Market</label>
+				  </div>
+			
+			   <div class="marketCompare1" style="display:none">
+					<div class="form-group">
+						<label for="pID1">Player ID</label>
+						<input type="text" class="pID1" id="pID1" style="font-size: x-small"/>
+						<span class="glyphicon glyphicon-play" aria-hidden="true" style="size:20px" onclick="retrieveMarketPlayer(1)"></span>
+					</div>
 				</div>
 				<br>
                 <div class="form-group" id="player1box">
-				
-				
+					<h2><span class='player1' >Custom player 1</span></h2><br>
+					<h4>Stamina: <input type="number" id="stamina1" min="1" max="9" class="player1 char1" value="1"></h4><br>
+					<h4>Player form <input id='form1' class='player1 slider char1' onchange="recomputeValue(1, 'other')" type='text' data-slider-min='1' data-slider-max='8' data-slider-step='1' data-slider-value='1'/><br>
+					<h4>Experience <input id='experience1' class='player1 slider char1'  onchange="recomputeValue(1, 'other')" clatype='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+					<h4>Loyalty <input id='loyalty1' class='player1 slider char1'  onchange="recomputeValue(1, 'other')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+					<h4>Mother club bonus  <i class='player1 fa fa-heart' id="motherClubBonus1" style='color:grey' onclick="changeStyle(this);recomputeValue(1, 'other')"></i></h4>
+					<div id='skillBox1' style='display:block'>
+						<h4>Keeper <input id='Keeper1' class='player1 slider char1'  onchange="recomputeValue(1, 'Keeper')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+						<h4>Defender <input id='Defender1' class='player1 slider char1'  onchange="recomputeValue(1, 'Defender')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+						<h4>Playmaker <input id='Playmaker1' class='player1 slider char1'  onchange="recomputeValue(1, 'Playmaker')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+						<h4>Passing <input id='Passing1' class='player1 slider char1'  onchange="recomputeValue(1, 'Passing')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+						<h4>Winger <input id='Winger1' class='player1 slider char1'  onchange="recomputeValue(1, 'Winger')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+						<h4>Scorer <input id='Scorer1' class='player1 slider char1'  onchange="recomputeValue(1, 'Scorer')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+						<h4>SetPieces <input id='SetPieces1' class='player1 slider char1'  onchange="recomputeValue(1, 'SetPieces')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+					</div>
                 </div>
-			  </div>
-			  
+			</div>
+		 
             <div class="col-md-6" id="radarChart">
-              <div style="margin-top:20px; text-align:center"><input type="submit" value="Compare"  onclick="drawRadar(); "/></div>
+              <div style="margin-top:20px; text-align:center" ><input type="submit" value="Compare"  onclick="drawRadar(); " style="display:none"/></div>
               <div id="container" ></div>
             </div>
 			
-			<div class="col-md-3" id="marketPlayer2">
+			<div class="col-md-3">
 			   <br>
-				<div class="form-group">
-					<label for="pID2">Player ID</label>
-					<input type="text" class="pID2" id="pID2" style="font-size: x-small"/>
-					<span class="glyphicon glyphicon-play" aria-hidden="true" style="size:20px" onclick="retrieveMarketPlayer(2)"></span>
+			   <div class="radio">
+					 <label><input type="radio" name="optradio" selected>Manual</label>
+				 </div>
+				 <div class="radio">
+					 <label><input type="radio" name="optradio">Market</label>
+				  </div>
+			
+			   <div class="marketCompare2" style="display:none">
+					<div class="form-group">
+						<label for="pID2">Player ID</label>
+						<input type="text" class="pID2" id="pID2" style="font-size: x-small"/>
+						<span class="glyphicon glyphicon-play" aria-hidden="true" style="size:20px" onclick="retrieveMarketPlayer(2)"></span>
+					</div>
 				</div>
 				<br>
                 <div class="form-group" id="player2box">
-				
-				
+					<h2><span class='player2' >Custom player 2</span></h2><br>
+					<h4>Stamina: <input type="number" id="stamina2" min="1" max="9" class="player2 char2" value="1"></h4><br>
+					<h4>Player form <input id='form2' class='player2 slider char2' onchange="recomputeValue(2, 'other')" type='text' data-slider-min='1' data-slider-max='8' data-slider-step='1' data-slider-value='1'/><br>
+					<h4>Experience <input id='experience2' class='player2 slider char2'  onchange="recomputeValue(2, 'other')" clatype='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+					<h4>Loyalty <input id='loyalty2' class='player2 slider char2'  onchange="recomputeValue(2, 'other')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+					<h4>Mother club bonus  <i class='player2 fa fa-heart' id="motherClubBonus2" style='color:grey' onclick="changeStyle(this);recomputeValue(2, 'other')"></i></h4>
+					<div id='skillBox2' style='display:block'>
+						<h4>Keeper <input id='Keeper2' class='player2 slider char2'  onchange="recomputeValue(2, 'Keeper')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+						<h4>Defender <input id='Defender2' class='player2 slider char2'  onchange="recomputeValue(2, 'Defender')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+						<h4>Playmaker <input id='Playmaker2' class='player2 slider char2'  onchange="recomputeValue(2, 'Playmaker')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+						<h4>Passing <input id='Passing2' class='player2 slider char2'  onchange="recomputeValue(2, 'Passing')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+						<h4>Winger <input id='Winger2' class='player2 slider char2'  onchange="recomputeValue(2, 'Winger')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+						<h4>Scorer <input id='Scorer2' class='player2 slider char2'  onchange="recomputeValue(2, 'Scorer')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+						<h4>SetPieces <input id='SetPieces2' class='player2 slider char2'  onchange="recomputeValue(2, 'SetPieces')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+					</div>
                 </div>
-			  </div>
+			 </div>
+			  
          </div>
       </div>
     
@@ -213,44 +210,14 @@
 
 <script>
 
-
-function recomputeValue(player){
-	
-	if(document.getElementById("skill"+player)){
-		
-		var playerDetails = document.getElementsByClassName("player"+player);
-		
-		var stamina = Number(playerDetails[0].innerHTML);
-		if(playerDetails[playerDetails.length-1].style.color == "green")
-			motherClubBonus = 0.5;
-		else 
-			motherClubBonus = 0;
-		
-		var sliderSkill = {};
-		for(i=1;i<playerDetails.length-1;i++){
-			sliderSkill[playerDetails[i].id] = playerDetails[i].value;
-		}
-		
-		var toChange = document.getElementById("skill"+player).innerHTML;
-		temp = 0;
-		if(radarSkill[player])
-			radarSkill[player].foreach(function(value){
-				temp += value;
-			});
-		temp += sliderSkill.loyalty/20 + motherClubBonus + (Math.log10(sliderSkill.experience)*(4/3));
-		temp *= Math.pow(((sliderSkill.form - 0.5)/7), 0.45) * Math.pow(((stamina + 6.5)/14), 0.6);
-		
-		toChange = temp;
+$(".slider").slider({
+	formatter: function(value) {
+		return value;
 	}
-}
+});
 
-function changeStyle(heart){
-	if(heart.style.color == "green")
-		heart.style.color = "grey";
-	else heart.style.color = green;
-}
-
-	radarOptions = {
+var chart;
+radarOptions = {
 
 			chart: {
 				polar: true,
@@ -276,13 +243,13 @@ function changeStyle(heart){
 			yAxis: {
 				gridLineInterpolation: 'polygon',
 				lineWidth: 0,
-				min: 0,
-				tickInterval:2
+				min: 0
+				//tickInterval:2
 			},
 
 			tooltip: {
 				shared: true,
-				pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.0f}</b><br/>'
+				pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y}</b><br/>'
 			},
 
 			legend: {
@@ -292,24 +259,111 @@ function changeStyle(heart){
 			},
 
 			series: [{
-				//name: 'Player A',
-				//data: [5,22,20,15,8,3,19],
+				name: 'Custom Player 1',
+				//data: [],
 				pointPlacement: 'on',
 				color: '#277f31'
 			}, {
-				//name: 'Player B',
-				//data: [15,2,20,15,8,7,15],
+				name: 'Custom Player 2',
+				//data: [],
 				pointPlacement: 'on'
 			}]
 
 		};
+		
+//util object to save recomputed value 
+var radarSkill = {};
+var utilSkill = ['keeper','Defender','Playmaker','Passing','Winger','Scorer','SetPieces'];
+for(j=1;j<3;j++){
+	radarSkill[j] = {};
+	radarSkillName = radarOptions.xAxis.categories;
+	newArray = [];
+	//change length to generic
+	for(i=0;i<7;i++){
+		radarSkill[j][radarSkillName[i]] = 0.22;
+		newArray[i] =  0.22;
+	}
+	radarOptions.series[j-1].data = newArray;
+	drawRadar();
+}
 
-	function drawRadar(){
-		Highcharts.chart('container', radarOptions);
-		console.log(radarOptions);
+function recomputeValue(player, skill){
+	
+	var playerDetails = document.getElementsByClassName("player"+player);
+			//console.log(playerDetails['form1'].value);
+	var stamina = Number(playerDetails["stamina"+player].value);
+	if(playerDetails["motherClubBonus"+player].style.color == "green")
+		motherClubBonus = 0.5;
+	else 
+		motherClubBonus = 0;
+	
+	var genericSkillSlider = ['form','experience','loyalty'];
+	var sliderSkill = {};
+	for(i=0;i<genericSkillSlider.length;i++){
+		sliderSkill[genericSkillSlider[i]] = playerDetails[genericSkillSlider[i]+player].value;
 	}
 	
-	var radarSkill = {};
+	if(skill == 'other'){
+
+		if(radarSkill[player]){
+			//console.log(radarSkill[player]);
+			for(var key in radarSkill[player]){
+				temp = 0;
+				temp += radarSkill[player][key];
+				temp += sliderSkill.loyalty/20 + motherClubBonus + (Math.log10(sliderSkill.experience)*(4/3));
+				temp *= Math.pow(((sliderSkill.form - 0.5)/7), 0.45);
+				temp *= Math.pow(((stamina + 6.5)/14), 0.6);	
+				radarSkill[player][key] = Math.round(temp * 100) / 100;
+			}
+		}	
+	}else{
+		newValue = document.getElementById(skill+""+player).value;
+		temp = newValue;
+		temp += sliderSkill.loyalty/20 + motherClubBonus + (Math.log10(sliderSkill.experience)*(4/3));
+		temp *= Math.pow(((sliderSkill.form - 0.5)/7), 0.45) * Math.pow(((stamina + 6.5)/14), 0.6);	
+		radarSkill[player][skill] = Math.round(temp * 100) / 100;		
+	}
+	
+	redrawRadar(player);
+}
+
+function redrawRadar(player, newData){
+	var chartBox = document.getElementById('container');
+	//if(chartBox.innerHTML!=""){
+		newArray = [];
+		for(i=0;i<utilSkill.length;i++){
+			newArray[i] = radarSkill[player][utilSkill[i]];
+		}
+		console.log(chart.series);
+		//chart.series[player-1].update({data: newArray});
+		chart.series[player-1].setData(newArray, true);
+		//chart.redraw();
+		//radarOptions.series[player-1].data = newArray;
+		//drawRadar();
+	//}
+}
+
+function changeStyle(heart){
+	if(heart.style.color == "green")
+		heart.style.color = "grey";
+	else heart.style.color = "green";
+}
+
+	function drawRadar(){
+		chart = Highcharts.chart('container', radarOptions);
+	}
+	
+	function showHideBox(checkbox, number){
+		box = document.getElementById("skillBox"+number);
+		console.log(checkbox.checked);
+		
+		if(checkbox.checked && box.style.display == "none")
+			box.style.display = "block"; 
+		else if(!checkbox.checked && box.style.display == "block")
+			box.style.display = "none";
+	}
+	
+	
 	function retrieveMarketPlayer(playerNumber){
 		
 		var id = $("#pID"+playerNumber).val();
@@ -320,7 +374,6 @@ function changeStyle(heart){
 			dataType: "xml",
             data: {playerID: id, playerNum:playerNumber}
           }).done(function( a, e, o) {
-			  console.log("sono in done");
 			  console.log(o);
 			  htmlBox = o.responseXML.getElementsByTagName("playerBox")[0].innerHTML;
 			  document.getElementById("player"+playerNumber+"box").innerHTML = htmlBox.substring(9, htmlBox.length-3);
@@ -330,13 +383,15 @@ function changeStyle(heart){
 						return value;
 					}
 				});
-			  $(".char"+playerNumber).on("change",recomputeValue(playerNumber));
+			  //$(".char"+playerNumber).on("change",recomputeValue(playerNumber));
 			  
 			  var stringArray = o.responseXML.getElementsByTagName("serie")[0].innerHTML;
 			  stringArray = stringArray.substring(1, stringArray.length-1);
 			  numberArray = stringArray.split(",").map(Number);
+			  //insert data directly in the radar options
 			  radarOptions.series[playerNumber-1].data = numberArray;
 			  
+			  //save the information in the util object 
 			  radarSkill[playerNumber] = {};
 			  radarSkillName = radarOptions.xAxis.categories;
 			  for(i=0;i<numberArray.length;i++){
@@ -345,8 +400,7 @@ function changeStyle(heart){
 			  radarOptions.series[playerNumber-1].name = o.responseXML.getElementsByTagName("name")[0].innerHTML;			
             }).error(function(err){
 					console.log(err.responseText);
-					
-				});
+			});
 		}
 	}	
 	
