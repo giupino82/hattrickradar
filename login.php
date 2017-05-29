@@ -3,8 +3,8 @@ include 'PHT/autoload.php';
 session_start();
 
 $config = array(
-    'CONSUMER_KEY' => '6IwH8O5NhNh3xpQBdhmia2',
-    'CONSUMER_SECRET' => 'r4qCnrdiNiNgNhIEfRKUKmhfHafgbJ9k6Iu2VZHeeYj',
+    'CONSUMER_KEY' => 'XXXXX',
+    'CONSUMER_SECRET' => 'XXXXX',
 	'LOG_TYPE' => 'file',
 	'LOG_LEVEL' => \PHT\Log\Level::DEBUG,
 	'LOG_FILE' => __DIR__ . '/pht.log'
