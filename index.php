@@ -71,48 +71,6 @@
   </head>
   <body>
    
-    <!--<div class="header-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="user-menu">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
-                            <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
-                            <li><a href="cart.html"><i class="fa fa-user"></i> My Cart</a></li>
-                            <li><a href="checkout.html"><i class="fa fa-user"></i> Checkout</a></li>
-                            <li><a href="#"><i class="fa fa-user"></i> Login</a></li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="header-right">
-                        <ul class="list-unstyled list-inline">
-                            <li class="dropdown dropdown-small">
-                                <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><span class="key">currency :</span><span class="value">USD </span><b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">USD</a></li>
-                                    <li><a href="#">INR</a></li>
-                                    <li><a href="#">GBP</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="dropdown dropdown-small">
-                                <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><span class="key">language :</span><span class="value">English </span><b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">English</a></li>
-                                    <li><a href="#">French</a></li>
-                                    <li><a href="#">German</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div--> <!-- End header area -->
-    
     <div class="site-branding-area">
         <div class="container">
             <div class="row">
@@ -144,8 +102,8 @@
                 </div> 
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.html">Home</a></li>
-                        <li><a href="compare-player.html">Compare players</a></li>
+                        <li class="active"><a href="index.php">Home</a></li>
+                        <li><a href="radar.php">Compare players</a></li>
 						<li><a href="login.php">Login</a></li>
                         <li><a href="#">Contact</a></li>
                     </ul>
@@ -183,9 +141,8 @@
                                         <div class="col-md-6 col-md-offset-6">
                                             <div class="slide-content">
                                                 <h2>HT Radar</h2>
-                                                <p>Compare two players from the market to decide who is the best for your team.
-												<?php echo "Ciao Simone,\n come stai?"; ?></p>   
-												<a href="compare-player.html" class="readmore">Learn more</a>                                             
+                                                <p>Compare two players from the market to decide who is the best for your team. 
+												<a href="radar.php" class="readmore">Learn more</a>                                             
                                             </div>
                                         </div>
                                     </div>
@@ -205,7 +162,7 @@
                                             <div class="slide-content">
                                                 <h2>HT Radar</h2>
                                                 <p>Compares a player of your team and one of the market, changing experience, form and loyalty to see who is the best.</p>
-												<a href="compare-player.html" class="readmore">Learn more</a>
+												<a href="radar.php" class="readmore">Learn more</a>
                                             </div>
                                         </div>
                                     </div>
@@ -225,7 +182,7 @@
                                             <div class="slide-content">
                                                 <h2>HT Radar</h2>
                                                 <p>Compares two players of your team to see who is the best!</p>
-                                                <a href="compare-player.html" class="readmore">Learn more</a>
+                                                <a href="radar.php" class="readmore">Learn more</a>
                                             </div>
                                         </div>
                                     </div>
@@ -255,7 +212,7 @@
 				<div class="col-md-4 col-sm-6">
                     <div class="single-promo">
                         <i class="fa fa-exchange"></i>
-                        <p>Your Player Vs. Player on trasfermarket</p>
+                        <p>Your Player Vs. Player on market</p>
                     </div>
                 </div>
 			  </a>
@@ -263,7 +220,7 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="single-promo">
                         <i class="fa fa-exchange"></i>
-                        <p>Player on trasfermarket Vs. Player on trasfermarket</p>
+                        <p>Player on market Vs. Player on market</p>
                     </div>
                 </div>
 			  </a>
@@ -284,7 +241,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="copyright">
-                        <p>&copy; 2017 HTRadar. All Rights Reserved. Coded with <i class="fa fa-heart"></i> by <a href="http://wpexpand.com" target="_blank">WP Expand</a></p>
+                        <p>&copy; 2017 HTRadar. All Rights Reserved.</p>
                     </div>
                 </div>                               
             </div>
