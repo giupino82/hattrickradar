@@ -8,18 +8,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Hattrick Radar</title>
-    
+
     <!-- Google Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
-    
+
     <!-- Bootstrap -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/owl.carousel.css">
     <link rel="stylesheet" href="style.css">
@@ -32,7 +32,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body>    
+  <body>
     <div class="site-branding-area">
         <div class="container">
             <div class="row">
@@ -44,7 +44,7 @@
             </div>
         </div>
     </div> <!-- End site branding area -->
-    
+
     <div class="mainmenu-area">
         <div class="container">
             <div class="row">
@@ -55,19 +55,26 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                </div> 
+                </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="index.html">Home</a></li>
                         <li><a href="compare-player.html">Compare players</a></li>
-						<li><a href="#">Login</a></li>
+
+                        <?php
+                        if(!isset($_SESSION['HT'])){
+                        	echo '<li><a href="login.php">Login</a></li>';
+                        }
+
+                        ?>
+
                         <li><a href="#">Contact</a></li>
                     </ul>
-                </div>  
+                </div>
             </div>
         </div>
     </div> <!-- End mainmenu area -->
-    
+
     <div class="product-big-title-area">
         <div class="container">
             <div class="row">
@@ -79,10 +86,10 @@
             </div>
         </div>
     </div>
-    
+
         <div class="container">
             <div class="row">
-			
+
 			  <div class="col-md-3">
 				 <br>
 				 <div class="radio">
@@ -91,7 +98,7 @@
 				 <div class="radio">
 					 <label><input type="radio" name="optradio">Market</label>
 				  </div>
-			
+
 			   <div class="marketCompare1" style="display:none">
 					<div class="form-group">
 						<label for="pID1">Player ID</label>
@@ -118,12 +125,12 @@
 					</div>
                 </div>
 			</div>
-		 
+
             <div class="col-md-6" id="radarChart">
               <div style="margin-top:20px; text-align:center" ><input type="submit" value="Compare"  onclick="drawRadar(); " style="display:none"/></div>
               <div id="container" ></div>
             </div>
-			
+
 			<div class="col-md-3">
 			   <br>
 			   <div class="radio">
@@ -132,7 +139,7 @@
 				 <div class="radio">
 					 <label><input type="radio" name="optradio">Market</label>
 				  </div>
-			
+
 			   <div class="marketCompare2" style="display:none">
 					<div class="form-group">
 						<label for="pID2">Player ID</label>
@@ -159,13 +166,13 @@
 					</div>
                 </div>
 			 </div>
-			  
+
          </div>
       </div>
-    
-    
-   
-    
+
+
+
+
     <div class="footer-bottom-area">
         <div class="container">
             <div class="row">
@@ -173,36 +180,36 @@
                     <div class="copyright">
                         <p>&copy; 2017 HTRadar. All Rights Reserved. Coded with <i class="fa fa-heart"></i> by <a href="http://wpexpand.com" target="_blank">WP Expand</a></p>
                     </div>
-                </div>                               
+                </div>
             </div>
         </div>
     </div> <!-- End footer bottom area -->
-   
+
     <!-- Latest jQuery form server -->
     <script src="https://code.jquery.com/jquery.min.js"></script>
-    
+
     <!-- Bootstrap JS form CDN -->
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    
+
     <!-- jQuery sticky menu -->
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/jquery.sticky.js"></script>
-    
+
     <!-- jQuery easing -->
     <script src="js/jquery.easing.1.3.min.js"></script>
-    
+
     <!-- Main Script -->
     <script src="js/main.js"></script>
-	
+
 	<script src="utils/bootstrap-slider-master/bootstrap-slider.min.js"></script>
 	<link rel="stylesheet" href="utils/bootstrap-slider-master/bootstrap-slider.min.css"></link>
-	
+
 	<!--Chart-->
 	<!--<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>-->
 	<script src="https://code.highcharts.com/highcharts.js"></script>
 	<script src="https://code.highcharts.com/highcharts-more.js"></script>
 	<script src="https://code.highcharts.com/modules/exporting.js"></script>
-	
+
 
   </body>
 </html>
@@ -270,8 +277,8 @@ radarOptions = {
 			}]
 
 		};
-		
-//util object to save recomputed value 
+
+//util object to save recomputed value
 var radarSkill = {};
 var utilSkill = ['keeper','Defender','Playmaker','Passing','Winger','Scorer','SetPieces'];
 for(j=1;j<3;j++){
@@ -288,21 +295,21 @@ for(j=1;j<3;j++){
 }
 
 function recomputeValue(player, skill){
-	
+
 	var playerDetails = document.getElementsByClassName("player"+player);
 			//console.log(playerDetails['form1'].value);
 	var stamina = Number(playerDetails["stamina"+player].value);
 	if(playerDetails["motherClubBonus"+player].style.color == "green")
 		motherClubBonus = 0.5;
-	else 
+	else
 		motherClubBonus = 0;
-	
+
 	var genericSkillSlider = ['form','experience','loyalty'];
 	var sliderSkill = {};
 	for(i=0;i<genericSkillSlider.length;i++){
 		sliderSkill[genericSkillSlider[i]] = playerDetails[genericSkillSlider[i]+player].value;
 	}
-	
+
 	if(skill == 'other'){
 
 		if(radarSkill[player]){
@@ -312,18 +319,18 @@ function recomputeValue(player, skill){
 				temp += radarSkill[player][key];
 				temp += sliderSkill.loyalty/20 + motherClubBonus + (Math.log10(sliderSkill.experience)*(4/3));
 				temp *= Math.pow(((sliderSkill.form - 0.5)/7), 0.45);
-				temp *= Math.pow(((stamina + 6.5)/14), 0.6);	
+				temp *= Math.pow(((stamina + 6.5)/14), 0.6);
 				radarSkill[player][key] = Math.round(temp * 100) / 100;
 			}
-		}	
+		}
 	}else{
 		newValue = document.getElementById(skill+""+player).value;
 		temp = newValue;
 		temp += sliderSkill.loyalty/20 + motherClubBonus + (Math.log10(sliderSkill.experience)*(4/3));
-		temp *= Math.pow(((sliderSkill.form - 0.5)/7), 0.45) * Math.pow(((stamina + 6.5)/14), 0.6);	
-		radarSkill[player][skill] = Math.round(temp * 100) / 100;		
+		temp *= Math.pow(((sliderSkill.form - 0.5)/7), 0.45) * Math.pow(((stamina + 6.5)/14), 0.6);
+		radarSkill[player][skill] = Math.round(temp * 100) / 100;
 	}
-	
+
 	redrawRadar(player);
 }
 
@@ -352,20 +359,20 @@ function changeStyle(heart){
 	function drawRadar(){
 		chart = Highcharts.chart('container', radarOptions);
 	}
-	
+
 	function showHideBox(checkbox, number){
 		box = document.getElementById("skillBox"+number);
 		console.log(checkbox.checked);
-		
+
 		if(checkbox.checked && box.style.display == "none")
-			box.style.display = "block"; 
+			box.style.display = "block";
 		else if(!checkbox.checked && box.style.display == "block")
 			box.style.display = "none";
 	}
-	
-	
+
+
 	function retrieveMarketPlayer(playerNumber){
-		
+
 		var id = $("#pID"+playerNumber).val();
         if($.isNumeric(id)){
           $.ajax({
@@ -377,32 +384,32 @@ function changeStyle(heart){
 			  console.log(o);
 			  htmlBox = o.responseXML.getElementsByTagName("playerBox")[0].innerHTML;
 			  document.getElementById("player"+playerNumber+"box").innerHTML = htmlBox.substring(9, htmlBox.length-3);
-			  
+
 			  $(".slider").slider({
 					formatter: function(value) {
 						return value;
 					}
 				});
 			  //$(".char"+playerNumber).on("change",recomputeValue(playerNumber));
-			  
+
 			  var stringArray = o.responseXML.getElementsByTagName("serie")[0].innerHTML;
 			  stringArray = stringArray.substring(1, stringArray.length-1);
 			  numberArray = stringArray.split(",").map(Number);
 			  //insert data directly in the radar options
 			  radarOptions.series[playerNumber-1].data = numberArray;
-			  
-			  //save the information in the util object 
+
+			  //save the information in the util object
 			  radarSkill[playerNumber] = {};
 			  radarSkillName = radarOptions.xAxis.categories;
 			  for(i=0;i<numberArray.length;i++){
 				  radarSkill[playerNumber][radarSkillName[i]] = numberArray[i];
 			  }
-			  radarOptions.series[playerNumber-1].name = o.responseXML.getElementsByTagName("name")[0].innerHTML;			
+			  radarOptions.series[playerNumber-1].name = o.responseXML.getElementsByTagName("name")[0].innerHTML;
             }).error(function(err){
 					console.log(err.responseText);
 			});
 		}
-	}	
-	
+	}
+
 
 </script>

@@ -1,8 +1,11 @@
 <?php
 	require_once 'PHT/autoload.php';
 	session_start();
-	if(isset($_SESSION['tmpToken'])){
-		$config = array(
+
+	$cookieToken = "htRadarOauthToken";
+	$cookieTokenSecret = "htRadarOauthTokenSecret";
+
+	$config = array(
 			'CONSUMER_KEY' => 'XXXXXX',
 			'CONSUMER_SECRET' => 'XXXXXX',
 			//'CACHE' => 'apc',
@@ -10,6 +13,15 @@
 			'LOG_LEVEL' => \PHT\Log\Level::DEBUG,
 			'LOG_FILE' => __DIR__ . '/pht.log'
 		);
+
+
+	if(isset($_COOKIE[$cookieToken]) and isset($_COOKIE[$cookieTokenSecret]) ){
+		$config['OAUTH_TOKEN'] = $_COOKIE[$cookieToken];
+		$config['OAUTH_TOKEN_SECRET'] = $_COOKIE[$cookieTokenSecret];
+	}
+
+	if(isset($_SESSION['tmpToken'])){
+
 
 		$HT = new \PHT\Connection($config);
 		// retrive the $tmpToken saved in previous step
@@ -25,16 +37,16 @@
 		// then you can request xml data
 		$config['OAUTH_TOKEN'] = $access->oauthToken;
 		$config['OAUTH_TOKEN_SECRET'] = $access->oauthTokenSecret;
+		setcookie($cookieToken, $access->oauthToken, time() + (86400 * 360), "/");
+		setcookie($cookieTokenSecret, $access->oauthTokenSecret, time() + (86400 * 360), "/");
+
+	}
+
+	if(isset($config['OAUTH_TOKEN'])){
 		$HT = new \PHT\PHT($config);
 		$_SESSION['HT']=$HT;
-		
-		
-		
-		$player = $HT->getSeniorPlayer('407708616');
-		echo $player->getStamina().'<br/>';
-		echo $player->hasMotherClubBonus();
-		
 	}
+
 ?>
 
 
@@ -104,7 +116,14 @@
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="index.php">Home</a></li>
                         <li><a href="radar.php">Compare players</a></li>
-						<li><a href="login.php">Login</a></li>
+
+                        <?php
+                        if(!isset($_SESSION['HT'])){
+                        	echo '<li><a href="login.php">Login</a></li>';
+                        }
+
+                        ?>
+
                         <li><a href="#">Contact</a></li>
                     </ul>
                 </div>  
@@ -224,18 +243,12 @@
                     </div>
                 </div>
 			  </a>
-                <!--div class="col-md-3 col-sm-6">
-                    <div class="single-promo">
-                        <i class="fa fa-gift"></i>
-                        <p>New products</p>
-                    </div>
-                </div-->
             </div>
         </div>
     </div> <!-- End promo area -->
-    
-   
-    
+
+
+
     <div class="footer-bottom-area">
         <div class="container">
             <div class="row">
@@ -243,7 +256,7 @@
                     <div class="copyright">
                         <p>&copy; 2017 HTRadar. All Rights Reserved.</p>
                     </div>
-                </div>                               
+                </div>
             </div>
         </div>
     </div> <!-- End footer bottom area -->
