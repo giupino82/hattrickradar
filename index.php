@@ -9,18 +9,16 @@
 			'CONSUMER_KEY' => 'XXXXXX',
 			'CONSUMER_SECRET' => 'XXXXXX',
 			//'CACHE' => 'apc',
-			'LOG_TYPE' => 'file',
-			'LOG_LEVEL' => \PHT\Log\Level::DEBUG,
-			'LOG_FILE' => __DIR__ . '/pht.log'
+			//'LOG_TYPE' => 'file',
+			//'LOG_LEVEL' => \PHT\Log\Level::DEBUG,
+			//'LOG_FILE' => __DIR__ . '/pht.log'
 		);
 
 
 	if(isset($_COOKIE[$cookieToken]) and isset($_COOKIE[$cookieTokenSecret]) ){
 		$config['OAUTH_TOKEN'] = $_COOKIE[$cookieToken];
 		$config['OAUTH_TOKEN_SECRET'] = $_COOKIE[$cookieTokenSecret];
-	}
-
-	if(isset($_SESSION['tmpToken'])){
+	} elseif(isset($_SESSION['tmpToken'])){
 
 
 		$HT = new \PHT\Connection($config);
@@ -120,6 +118,8 @@
                         <?php
                         if(!isset($_SESSION['HT'])){
                         	echo '<li><a href="login.php">Login</a></li>';
+                        } else {
+                        	echo '<li><a href="logout.php">Logout</a></li>';
                         }
 
                         ?>

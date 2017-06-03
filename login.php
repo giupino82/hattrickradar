@@ -5,13 +5,13 @@ session_start();
 $config = array(
     'CONSUMER_KEY' => 'XXXXXX',
     'CONSUMER_SECRET' => 'XXXXXX',
-	'LOG_TYPE' => 'file',
-	'LOG_LEVEL' => \PHT\Log\Level::DEBUG,
-	'LOG_FILE' => __DIR__ . '/pht.log'
+	//'LOG_TYPE' => 'file',
+	//'LOG_LEVEL' => \PHT\Log\Level::DEBUG,
+	//'LOG_FILE' => __DIR__ . '/pht.log'
 );
 $HT = new \PHT\Connection($config);
 
-$auth = $HT->getPermanentAuthorization('http://localhost/hattrickradar/index.php'); // put your own url
+$auth = $HT->getPermanentAuthorization('http://localhost/hattrickradar/'); // put your own url
 //$auth = $HT->getTemporaryAuthorization('http://hattrickradar.altervista.org/index.php');
 
 if ($auth === false) {
