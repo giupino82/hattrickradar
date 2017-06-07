@@ -89,19 +89,19 @@
         </div>
     </div>
 
-        <div class="container">
+       <div class="container">
             <div class="row">
-
-			  <div class="col-md-3">
+			
+			  <div class="col-md-3" style="text-align:center">
 				 <br>
 				 <div class="radio">
-					 <label><input type="radio" name="optradio" selected>Manual</label>
+					 <label><input type="radio" name="optradio1" checked="checked" onchange="document.getElementById('player1box').style.display='block';document.getElementById('marketCompare1').style.display='none';document.getElementById('player1boxmarket').style.display='none';changeName=true;recomputeValue(1,'other');">Manual</label>
 				 </div>
 				 <div class="radio">
-					 <label><input type="radio" name="optradio">Market</label>
+					 <label><input type="radio" name="optradio1" onchange="document.getElementById('marketCompare1').style.display='block';document.getElementById('player1box').style.display='none';document.getElementById('player1boxmarket').style.display='none';">Market</label>
 				  </div>
-
-			   <div class="marketCompare1" style="display:none">
+			
+			   <div class="marketCompare1" id="marketCompare1" style="display:none">
 					<div class="form-group">
 						<label for="pID1">Player ID</label>
 						<input type="text" class="pID1" id="pID1" style="font-size: x-small"/>
@@ -109,40 +109,42 @@
 					</div>
 				</div>
 				<br>
-                <div class="form-group" id="player1box">
+				<div id="player1boxmarket" style="display:none">
+				</div>
+                <div class="form-group" id="player1box" class="manualCompare1">
 					<h2><span class='player1' >Custom player 1</span></h2><br>
 					<h4>Stamina: <input type="number" id="stamina1" min="1" max="9" class="player1 char1" value="1"></h4><br>
-					<h4>Player form <input id='form1' class='player1 slider char1' onchange="recomputeValue(1, 'other')" type='text' data-slider-min='1' data-slider-max='8' data-slider-step='1' data-slider-value='1'/><br>
-					<h4>Experience <input id='experience1' class='player1 slider char1'  onchange="recomputeValue(1, 'other')" clatype='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-					<h4>Loyalty <input id='loyalty1' class='player1 slider char1'  onchange="recomputeValue(1, 'other')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+					<h4>Player form <br><input id='form1' class='player1 slider char1' onchange="recomputeValue(1, 'other')" type='text' data-slider-min='1' data-slider-max='8' data-slider-step='1' data-slider-value='1'/><br>
+					<h4>Experience <br><input id='experience1' class='player1 slider char1'  onchange="recomputeValue(1, 'other')" clatype='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+					<h4>Loyalty <br><input id='loyalty1' class='player1 slider char1'  onchange="recomputeValue(1, 'other')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
 					<h4>Mother club bonus  <i class='player1 fa fa-heart' id="motherClubBonus1" style='color:grey' onclick="changeStyle(this);recomputeValue(1, 'other')"></i></h4>
 					<div id='skillBox1' style='display:block'>
-						<h4>Keeper <input id='Keeper1' class='player1 slider char1'  onchange="recomputeValue(1, 'Keeper')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-						<h4>Defender <input id='Defender1' class='player1 slider char1'  onchange="recomputeValue(1, 'Defender')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-						<h4>Playmaker <input id='Playmaker1' class='player1 slider char1'  onchange="recomputeValue(1, 'Playmaker')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-						<h4>Passing <input id='Passing1' class='player1 slider char1'  onchange="recomputeValue(1, 'Passing')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-						<h4>Winger <input id='Winger1' class='player1 slider char1'  onchange="recomputeValue(1, 'Winger')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-						<h4>Scorer <input id='Scorer1' class='player1 slider char1'  onchange="recomputeValue(1, 'Scorer')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-						<h4>SetPieces <input id='SetPieces1' class='player1 slider char1'  onchange="recomputeValue(1, 'SetPieces')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+						<h4>Keeper <br><input id='Keeper1' class='player1 slider char1'  onchange="recomputeValue(1, 'Keeper')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+						<h4>Defender <br><input id='Defender1' class='player1 slider char1'  onchange="recomputeValue(1, 'Defender')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+						<h4>Playmaker <br><input id='Playmaker1' class='player1 slider char1'  onchange="recomputeValue(1, 'Playmaker')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+						<h4>Passing <br><input id='Passing1' class='player1 slider char1'  onchange="recomputeValue(1, 'Passing')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+						<h4>Winger <br><input id='Winger1' class='player1 slider char1'  onchange="recomputeValue(1, 'Winger')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+						<h4>Scorer <br><input id='Scorer1' class='player1 slider char1'  onchange="recomputeValue(1, 'Scorer')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+						<h4>SetPieces <br><input id='SetPieces1' class='player1 slider char1'  onchange="recomputeValue(1, 'SetPieces')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
 					</div>
                 </div>
 			</div>
-
+		 
             <div class="col-md-6" id="radarChart">
               <div style="margin-top:20px; text-align:center" ><input type="submit" value="Compare"  onclick="drawRadar(); " style="display:none"/></div>
-              <div id="container" ></div>
+              <div id="container"></div>
             </div>
-
-			<div class="col-md-3">
+			
+			<div class="col-md-3" style="text-align:center">
 			   <br>
 			   <div class="radio">
-					 <label><input type="radio" name="optradio" selected>Manual</label>
+					 <label><input type="radio" name="optradio2" checked="checked" onchange="document.getElementById('marketCompare2').style.display='none';document.getElementById('player2boxmarket').style.display='none';document.getElementById('playerbox2').style.display='block';changeName=true;recomputeValue(1,'other');">Manual</label>
 				 </div>
 				 <div class="radio">
-					 <label><input type="radio" name="optradio">Market</label>
+					 <label><input type="radio" name="optradio2" onchange="document.getElementById('player2box').style.display='none';document.getElementById('player2boxmarket').style.display='none';document.getElementById('marketCompare2').style.display='block';">Market</label>
 				  </div>
-
-			   <div class="marketCompare2" style="display:none">
+			
+				<div class="marketCompare2" style="display:none">
 					<div class="form-group">
 						<label for="pID2">Player ID</label>
 						<input type="text" class="pID2" id="pID2" style="font-size: x-small"/>
@@ -150,31 +152,33 @@
 					</div>
 				</div>
 				<br>
-                <div class="form-group" id="player2box">
+				<div id="player2boxmarket" style="display:none">
+				</div>
+                <div class="form-group" id="playerbox2" class="manualCompare2">
 					<h2><span class='player2' >Custom player 2</span></h2><br>
 					<h4>Stamina: <input type="number" id="stamina2" min="1" max="9" class="player2 char2" value="1"></h4><br>
-					<h4>Player form <input id='form2' class='player2 slider char2' onchange="recomputeValue(2, 'other')" type='text' data-slider-min='1' data-slider-max='8' data-slider-step='1' data-slider-value='1'/><br>
-					<h4>Experience <input id='experience2' class='player2 slider char2'  onchange="recomputeValue(2, 'other')" clatype='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-					<h4>Loyalty <input id='loyalty2' class='player2 slider char2'  onchange="recomputeValue(2, 'other')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+					<h4>Player form <br><input id='form2' class='player2 slider char2' onchange="recomputeValue(2, 'other')" type='text' data-slider-min='1' data-slider-max='8' data-slider-step='1' data-slider-value='1'/><br>
+					<h4>Experience <br><input id='experience2' class='player2 slider char2'  onchange="recomputeValue(2, 'other')" clatype='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+					<h4>Loyalty <br><input id='loyalty2' class='player2 slider char2'  onchange="recomputeValue(2, 'other')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
 					<h4>Mother club bonus  <i class='player2 fa fa-heart' id="motherClubBonus2" style='color:grey' onclick="changeStyle(this);recomputeValue(2, 'other')"></i></h4>
 					<div id='skillBox2' style='display:block'>
-						<h4>Keeper <input id='Keeper2' class='player2 slider char2'  onchange="recomputeValue(2, 'Keeper')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-						<h4>Defender <input id='Defender2' class='player2 slider char2'  onchange="recomputeValue(2, 'Defender')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-						<h4>Playmaker <input id='Playmaker2' class='player2 slider char2'  onchange="recomputeValue(2, 'Playmaker')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-						<h4>Passing <input id='Passing2' class='player2 slider char2'  onchange="recomputeValue(2, 'Passing')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-						<h4>Winger <input id='Winger2' class='player2 slider char2'  onchange="recomputeValue(2, 'Winger')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-						<h4>Scorer <input id='Scorer2' class='player2 slider char2'  onchange="recomputeValue(2, 'Scorer')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-						<h4>SetPieces <input id='SetPieces2' class='player2 slider char2'  onchange="recomputeValue(2, 'SetPieces')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+						<h4>Keeper <br><input id='Keeper2' class='player2 slider char2'  onchange="recomputeValue(2, 'Keeper')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+						<h4>Defender <br><input id='Defender2' class='player2 slider char2'  onchange="recomputeValue(2, 'Defender')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+						<h4>Playmaker <br><input id='Playmaker2' class='player2 slider char2'  onchange="recomputeValue(2, 'Playmaker')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+						<h4>Passing <br><input id='Passing2' class='player2 slider char2'  onchange="recomputeValue(2, 'Passing')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+						<h4>Winger <br><input id='Winger2' class='player2 slider char2'  onchange="recomputeValue(2, 'Winger')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+						<h4>Scorer <br><input id='Scorer2' class='player2 slider char2'  onchange="recomputeValue(2, 'Scorer')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+						<h4>SetPieces <br><input id='SetPieces2' class='player2 slider char2'  onchange="recomputeValue(2, 'SetPieces')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
 					</div>
                 </div>
 			 </div>
-
+			  
          </div>
       </div>
-
-
-
-
+    
+    
+   
+    
     <div class="footer-bottom-area">
         <div class="container">
             <div class="row">
@@ -182,36 +186,36 @@
                     <div class="copyright">
                         <p>&copy; 2017 HTRadar. All Rights Reserved. Coded with <i class="fa fa-heart"></i> by <a href="http://wpexpand.com" target="_blank">WP Expand</a></p>
                     </div>
-                </div>
+                </div>                               
             </div>
         </div>
     </div> <!-- End footer bottom area -->
-
+   
     <!-- Latest jQuery form server -->
     <script src="https://code.jquery.com/jquery.min.js"></script>
-
+    
     <!-- Bootstrap JS form CDN -->
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
+    
     <!-- jQuery sticky menu -->
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/jquery.sticky.js"></script>
-
+    
     <!-- jQuery easing -->
     <script src="js/jquery.easing.1.3.min.js"></script>
-
+    
     <!-- Main Script -->
     <script src="js/main.js"></script>
-
+	
 	<script src="utils/bootstrap-slider-master/bootstrap-slider.min.js"></script>
 	<link rel="stylesheet" href="utils/bootstrap-slider-master/bootstrap-slider.min.css"></link>
-
+	
 	<!--Chart-->
 	<!--<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>-->
 	<script src="https://code.highcharts.com/highcharts.js"></script>
 	<script src="https://code.highcharts.com/highcharts-more.js"></script>
 	<script src="https://code.highcharts.com/modules/exporting.js"></script>
-
+	
 
   </body>
 </html>
@@ -262,9 +266,7 @@ radarOptions = {
 			},
 
 			legend: {
-				align: 'center',
-				y: 70,
-				layout: 'vertical'
+				align: 'center'				
 			},
 
 			series: [{
@@ -279,10 +281,10 @@ radarOptions = {
 			}]
 
 		};
-
-//util object to save recomputed value
+		
+//util object to save recomputed value 
 var radarSkill = {};
-var utilSkill = ['keeper','Defender','Playmaker','Passing','Winger','Scorer','SetPieces'];
+var utilSkill = ['Keeper','Defender','Playmaker','Passing','Winger','Scorer','SetPieces'];
 for(j=1;j<3;j++){
 	radarSkill[j] = {};
 	radarSkillName = radarOptions.xAxis.categories;
@@ -297,46 +299,52 @@ for(j=1;j<3;j++){
 }
 
 function recomputeValue(player, skill){
-
+	
 	var playerDetails = document.getElementsByClassName("player"+player);
-			//console.log(playerDetails['form1'].value);
+	//var playerDetails = document.querySelectorAll(".player"+player);
+	//console.log("."+type+"Compare"+player+" ."+"player"+player);
+			//console.log(playerDetails.input#Scorer1);
 	var stamina = Number(playerDetails["stamina"+player].value);
 	if(playerDetails["motherClubBonus"+player].style.color == "green")
 		motherClubBonus = 0.5;
-	else
+	else 
 		motherClubBonus = 0;
-
+	
 	var genericSkillSlider = ['form','experience','loyalty'];
 	var sliderSkill = {};
 	for(i=0;i<genericSkillSlider.length;i++){
 		sliderSkill[genericSkillSlider[i]] = playerDetails[genericSkillSlider[i]+player].value;
 	}
-
+	
 	if(skill == 'other'){
 
 		if(radarSkill[player]){
-			//console.log(radarSkill[player]);
+			console.log(radarSkill[player]);
 			for(var key in radarSkill[player]){
+				//prendere dagli slider
 				temp = 0;
-				temp += radarSkill[player][key];
+				temp += Number(playerDetails[key+player].value);
+				//temp += radarSkill[player][key];
 				temp += sliderSkill.loyalty/20 + motherClubBonus + (Math.log10(sliderSkill.experience)*(4/3));
 				temp *= Math.pow(((sliderSkill.form - 0.5)/7), 0.45);
-				temp *= Math.pow(((stamina + 6.5)/14), 0.6);
+				temp *= Math.pow(((stamina + 6.5)/14), 0.6);	
 				radarSkill[player][key] = Math.round(temp * 100) / 100;
 			}
-		}
+		}	
+
 	}else{
 		newValue = document.getElementById(skill+""+player).value;
 		temp = newValue;
 		temp += sliderSkill.loyalty/20 + motherClubBonus + (Math.log10(sliderSkill.experience)*(4/3));
-		temp *= Math.pow(((sliderSkill.form - 0.5)/7), 0.45) * Math.pow(((stamina + 6.5)/14), 0.6);
+		temp *= Math.pow(((sliderSkill.form - 0.5)/7), 0.45) * Math.pow(((stamina + 6.5)/14), 0.6);	
 		radarSkill[player][skill] = Math.round(temp * 100) / 100;
+		
 	}
-
+	
 	redrawRadar(player);
 }
 
-function redrawRadar(player, newData){
+function redrawRadar(player){
 	var chartBox = document.getElementById('container');
 	//if(chartBox.innerHTML!=""){
 		newArray = [];
@@ -346,6 +354,12 @@ function redrawRadar(player, newData){
 		console.log(chart.series);
 		//chart.series[player-1].update({data: newArray});
 		chart.series[player-1].setData(newArray, true);
+		
+		/*if(changeName){
+			chart.series[player-1].update({name:'Custom Player '+player}, false);
+			changeName = false;
+			chart.redraw();
+		}*/
 		//chart.redraw();
 		//radarOptions.series[player-1].data = newArray;
 		//drawRadar();
@@ -361,20 +375,20 @@ function changeStyle(heart){
 	function drawRadar(){
 		chart = Highcharts.chart('container', radarOptions);
 	}
-
+	
 	function showHideBox(checkbox, number){
-		box = document.getElementById("skillBox"+number);
+		box = document.getElementById("skillBox"+number+"market");
 		console.log(checkbox.checked);
-
+		
 		if(checkbox.checked && box.style.display == "none")
-			box.style.display = "block";
+			box.style.display = "block"; 
 		else if(!checkbox.checked && box.style.display == "block")
 			box.style.display = "none";
 	}
-
-
+	
+	
 	function retrieveMarketPlayer(playerNumber){
-
+		
 		var id = $("#pID"+playerNumber).val();
         if($.isNumeric(id)){
           $.ajax({
@@ -385,33 +399,36 @@ function changeStyle(heart){
           }).done(function( a, e, o) {
 			  console.log(o);
 			  htmlBox = o.responseXML.getElementsByTagName("playerBox")[0].innerHTML;
-			  document.getElementById("player"+playerNumber+"box").innerHTML = htmlBox.substring(9, htmlBox.length-3);
-
-			  $(".slider").slider({
+			  document.getElementById("player"+playerNumber+"boxmarket").innerHTML = htmlBox.substring(9, htmlBox.length-3);
+			  document.getElementById("player"+playerNumber+"boxmarket").style.display='block';
+			  
+			  $(".slidermarket"+playerNumber).slider({
 					formatter: function(value) {
+						console.log(value);
 						return value;
 					}
 				});
 			  //$(".char"+playerNumber).on("change",recomputeValue(playerNumber));
-
+			  
 			  var stringArray = o.responseXML.getElementsByTagName("serie")[0].innerHTML;
 			  stringArray = stringArray.substring(1, stringArray.length-1);
 			  numberArray = stringArray.split(",").map(Number);
 			  //insert data directly in the radar options
 			  radarOptions.series[playerNumber-1].data = numberArray;
-
-			  //save the information in the util object
+			  
+			  //save the information in the util object 
 			  radarSkill[playerNumber] = {};
 			  radarSkillName = radarOptions.xAxis.categories;
 			  for(i=0;i<numberArray.length;i++){
 				  radarSkill[playerNumber][radarSkillName[i]] = numberArray[i];
 			  }
 			  radarOptions.series[playerNumber-1].name = o.responseXML.getElementsByTagName("name")[0].innerHTML;
+			  drawRadar();			  
             }).error(function(err){
 					console.log(err.responseText);
 			});
 		}
-	}
-
+	}	
+	
 
 </script>
