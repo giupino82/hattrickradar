@@ -95,37 +95,37 @@
 			  <div class="col-md-3" style="text-align:center">
 				 <br>
 				 <div class="radio">
-					 <label><input type="radio" name="optradio1" checked="checked" onchange="document.getElementById('player1box').style.display='block';document.getElementById('marketCompare1').style.display='none';document.getElementById('player1boxmarket').style.display='none';changeName=true;recomputeValue(1,'other');">Manual</label>
+					 <label><input type="radio" name="optradio1" checked="checked" onchange="document.getElementById('player1box').style.display='block';document.getElementById('marketCompare1').style.display='none';document.getElementById('player1boxmarket').style.display='none';radio1 = 'manual';recomputeValue(1,'other');">Manual</label>
 				 </div>
 				 <div class="radio">
-					 <label><input type="radio" name="optradio1" onchange="document.getElementById('marketCompare1').style.display='block';document.getElementById('player1box').style.display='none';document.getElementById('player1boxmarket').style.display='none';">Market</label>
+					 <label><input type="radio" name="optradio1" onchange="document.getElementById('marketCompare1').style.display='block';document.getElementById('player1box').style.display='none';document.getElementById('player1boxmarket').style.display='block';radio1 = 'market';recomputeValue(1,'other');">Market</label>
 				  </div>
 			
 			   <div class="marketCompare1" id="marketCompare1" style="display:none">
 					<div class="form-group">
 						<label for="pID1">Player ID</label>
 						<input type="text" class="pID1" id="pID1" style="font-size: x-small"/>
-						<span class="glyphicon glyphicon-play" aria-hidden="true" style="size:20px" onclick="retrieveMarketPlayer(1)"></span>
+						<span class="glyphicon glyphicon-play" aria-hidden="true" style="size:20px" onclick="retrieveMarketPlayer(1);marketFirstRetrieve1=false"></span>
 					</div>
 				</div>
 				<br>
 				<div id="player1boxmarket" style="display:none">
 				</div>
                 <div class="form-group" id="player1box" class="manualCompare1">
-					<h2><span class='player1' >Custom player 1</span></h2><br>
-					<h4>Stamina: <input type="number" id="stamina1" min="1" max="9" class="player1 char1" value="1"></h4><br>
-					<h4>Player form <br><input id='form1' class='player1 slider char1' onchange="recomputeValue(1, 'other')" type='text' data-slider-min='1' data-slider-max='8' data-slider-step='1' data-slider-value='1'/><br>
-					<h4>Experience <br><input id='experience1' class='player1 slider char1'  onchange="recomputeValue(1, 'other')" clatype='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-					<h4>Loyalty <br><input id='loyalty1' class='player1 slider char1'  onchange="recomputeValue(1, 'other')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-					<h4>Mother club bonus  <i class='player1 fa fa-heart' id="motherClubBonus1" style='color:grey' onclick="changeStyle(this);recomputeValue(1, 'other')"></i></h4>
+					<h2><span class='player1 manual' >Custom player 1</span></h2><br>
+					<h4>Stamina: <input type="number" id="stamina1" min="1" max="9" class="player1 char1 manual" value="1"></h4><br>
+					<h4>Player form <br><input id='form1' class='player1 slider char1 manual' onchange="recomputeValue(1, 'other')" type='text' data-slider-min='1' data-slider-max='8' data-slider-step='1' data-slider-value='1'/><br>
+					<h4>Experience <br><input id='experience1' class='player1 slider char1 manual'  onchange="recomputeValue(1, 'other')" clatype='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+					<h4>Loyalty <br><input id='loyalty1' class='player1 slider char1 manual'  onchange="recomputeValue(1, 'other')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+					<h4>Mother club bonus  <i class='player1 fa fa-heart manual' id="motherClubBonus1" style='color:grey' onclick="changeStyle(this);recomputeValue(1, 'other')"></i></h4>
 					<div id='skillBox1' style='display:block'>
-						<h4>Keeper <br><input id='Keeper1' class='player1 slider char1'  onchange="recomputeValue(1, 'Keeper')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-						<h4>Defender <br><input id='Defender1' class='player1 slider char1'  onchange="recomputeValue(1, 'Defender')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-						<h4>Playmaker <br><input id='Playmaker1' class='player1 slider char1'  onchange="recomputeValue(1, 'Playmaker')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-						<h4>Passing <br><input id='Passing1' class='player1 slider char1'  onchange="recomputeValue(1, 'Passing')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-						<h4>Winger <br><input id='Winger1' class='player1 slider char1'  onchange="recomputeValue(1, 'Winger')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-						<h4>Scorer <br><input id='Scorer1' class='player1 slider char1'  onchange="recomputeValue(1, 'Scorer')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-						<h4>SetPieces <br><input id='SetPieces1' class='player1 slider char1'  onchange="recomputeValue(1, 'SetPieces')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+						<h4>Keeper <br><input id='Keeper1' class='player1 slider char1 manual'  onchange="recomputeValue(1, 'Keeper')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+						<h4>Defender <br><input id='Defender1' class='player1 slider char1 manual'  onchange="recomputeValue(1, 'Defender')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+						<h4>Playmaker <br><input id='Playmaker1' class='player1 slider char1 manual'  onchange="recomputeValue(1, 'Playmaker')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+						<h4>Passing <br><input id='Passing1' class='player1 slider char1 manual'  onchange="recomputeValue(1, 'Passing')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+						<h4>Winger <br><input id='Winger1' class='player1 slider char1 manual'  onchange="recomputeValue(1, 'Winger')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+						<h4>Scorer <br><input id='Scorer1' class='player1 slider char1 manual'  onchange="recomputeValue(1, 'Scorer')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+						<h4>SetPieces <br><input id='SetPieces1' class='player1 slider char1 manual'  onchange="recomputeValue(1, 'SetPieces')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
 					</div>
                 </div>
 			</div>
@@ -138,37 +138,37 @@
 			<div class="col-md-3" style="text-align:center">
 			   <br>
 			   <div class="radio">
-					 <label><input type="radio" name="optradio2" checked="checked" onchange="document.getElementById('marketCompare2').style.display='none';document.getElementById('player2boxmarket').style.display='none';document.getElementById('playerbox2').style.display='block';changeName=true;recomputeValue(1,'other');">Manual</label>
+					 <label><input type="radio" name="optradio2" checked="checked" onchange="document.getElementById('marketCompare2').style.display='none';document.getElementById('player2boxmarket').style.display='none';document.getElementById('playerbox2').style.display='block';radio2 = 'manual';recomputeValue(2,'other');">Manual</label>
 				 </div>
 				 <div class="radio">
-					 <label><input type="radio" name="optradio2" onchange="document.getElementById('player2box').style.display='none';document.getElementById('player2boxmarket').style.display='none';document.getElementById('marketCompare2').style.display='block';">Market</label>
+					 <label><input type="radio" name="optradio2" onchange="document.getElementById('playerbox2').style.display='none';document.getElementById('player2boxmarket').style.display='block';document.getElementById('marketCompare2').style.display='block';radio2='market';recomputeValue(2,'other');">Market</label>
 				  </div>
 			
-				<div class="marketCompare2" style="display:none">
+				<div class="marketCompare2"id="marketCompare2"  style="display:none">
 					<div class="form-group">
 						<label for="pID2">Player ID</label>
 						<input type="text" class="pID2" id="pID2" style="font-size: x-small"/>
-						<span class="glyphicon glyphicon-play" aria-hidden="true" style="size:20px" onclick="retrieveMarketPlayer(2)"></span>
+						<span class="glyphicon glyphicon-play" aria-hidden="true" style="size:20px" onclick="retrieveMarketPlayer(2);marketFirstRetrieve2=false;"></span>
 					</div>
 				</div>
 				<br>
 				<div id="player2boxmarket" style="display:none">
 				</div>
                 <div class="form-group" id="playerbox2" class="manualCompare2">
-					<h2><span class='player2' >Custom player 2</span></h2><br>
-					<h4>Stamina: <input type="number" id="stamina2" min="1" max="9" class="player2 char2" value="1"></h4><br>
-					<h4>Player form <br><input id='form2' class='player2 slider char2' onchange="recomputeValue(2, 'other')" type='text' data-slider-min='1' data-slider-max='8' data-slider-step='1' data-slider-value='1'/><br>
-					<h4>Experience <br><input id='experience2' class='player2 slider char2'  onchange="recomputeValue(2, 'other')" clatype='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-					<h4>Loyalty <br><input id='loyalty2' class='player2 slider char2'  onchange="recomputeValue(2, 'other')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-					<h4>Mother club bonus  <i class='player2 fa fa-heart' id="motherClubBonus2" style='color:grey' onclick="changeStyle(this);recomputeValue(2, 'other')"></i></h4>
+					<h2><span class='player2 manual' >Custom player 2</span></h2><br>
+					<h4>Stamina: <input type="number" id="stamina2" min="1" max="9" class="player2 char2 manual" value="1"></h4><br>
+					<h4>Player form <br><input id='form2' class='player2 slider char2 manual' onchange="recomputeValue(2, 'other')" type='text' data-slider-min='1' data-slider-max='8' data-slider-step='1' data-slider-value='1'/><br>
+					<h4>Experience <br><input id='experience2' class='player2 slider char2 manual'  onchange="recomputeValue(2, 'other')" clatype='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+					<h4>Loyalty <br><input id='loyalty2' class='player2 slider char2 manual'  onchange="recomputeValue(2, 'other')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+					<h4>Mother club bonus  <i class='player2 fa fa-heart manual' id="motherClubBonus2" style='color:grey' onclick="changeStyle(this);recomputeValue(2, 'other')"></i></h4>
 					<div id='skillBox2' style='display:block'>
-						<h4>Keeper <br><input id='Keeper2' class='player2 slider char2'  onchange="recomputeValue(2, 'Keeper')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-						<h4>Defender <br><input id='Defender2' class='player2 slider char2'  onchange="recomputeValue(2, 'Defender')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-						<h4>Playmaker <br><input id='Playmaker2' class='player2 slider char2'  onchange="recomputeValue(2, 'Playmaker')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-						<h4>Passing <br><input id='Passing2' class='player2 slider char2'  onchange="recomputeValue(2, 'Passing')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-						<h4>Winger <br><input id='Winger2' class='player2 slider char2'  onchange="recomputeValue(2, 'Winger')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-						<h4>Scorer <br><input id='Scorer2' class='player2 slider char2'  onchange="recomputeValue(2, 'Scorer')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-						<h4>SetPieces <br><input id='SetPieces2' class='player2 slider char2'  onchange="recomputeValue(2, 'SetPieces')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+						<h4>Keeper <br><input id='Keeper2' class='player2 slider char2 manual'  onchange="recomputeValue(2, 'Keeper')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+						<h4>Defender <br><input id='Defender2' class='player2 slider char2 manual'  onchange="recomputeValue(2, 'Defender')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+						<h4>Playmaker <br><input id='Playmaker2' class='player2 slider char2 manual'  onchange="recomputeValue(2, 'Playmaker')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+						<h4>Passing <br><input id='Passing2' class='player2 slider char2 manual'  onchange="recomputeValue(2, 'Passing')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+						<h4>Winger <br><input id='Winger2' class='player2 slider char2 manual'  onchange="recomputeValue(2, 'Winger')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+						<h4>Scorer <br><input id='Scorer2' class='player2 slider char2 manual'  onchange="recomputeValue(2, 'Scorer')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+						<h4>SetPieces <br><input id='SetPieces2' class='player2 slider char2 manual'  onchange="recomputeValue(2, 'SetPieces')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
 					</div>
                 </div>
 			 </div>
@@ -283,6 +283,12 @@ radarOptions = {
 		};
 		
 //util object to save recomputed value 
+var radio1 = 'manual';
+var radio2 = 'manual';
+
+var marketFirstRetrieve1 = true;
+var marketFirstRetrieve2 = true;
+
 var radarSkill = {};
 var utilSkill = ['Keeper','Defender','Playmaker','Passing','Winger','Scorer','SetPieces'];
 for(j=1;j<3;j++){
@@ -300,7 +306,13 @@ for(j=1;j<3;j++){
 
 function recomputeValue(player, skill){
 	
-	var playerDetails = document.getElementsByClassName("player"+player);
+	
+	if(eval('marketFirstRetrieve'+player))
+			return;
+	
+	var playerDetails = document.getElementsByClassName("player"+player+" "+eval('radio'+player));
+	
+	//var playerDetails = playerDetailsNoCat.getElementsByClassName(radio);
 	//var playerDetails = document.querySelectorAll(".player"+player);
 	//console.log("."+type+"Compare"+player+" ."+"player"+player);
 			//console.log(playerDetails.input#Scorer1);
@@ -355,11 +367,11 @@ function redrawRadar(player){
 		//chart.series[player-1].update({data: newArray});
 		chart.series[player-1].setData(newArray, true);
 		
-		/*if(changeName){
+		if(eval('radio'+player) == 'manual'){
 			chart.series[player-1].update({name:'Custom Player '+player}, false);
 			changeName = false;
 			chart.redraw();
-		}*/
+		}
 		//chart.redraw();
 		//radarOptions.series[player-1].data = newArray;
 		//drawRadar();
