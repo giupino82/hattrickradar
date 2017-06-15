@@ -183,7 +183,7 @@ z-index: 9;
   width: 100%;background-position: center;background-size: cover
 }
 .slide-bg:after {
-  background: none repeat scroll 0 0 #000;
+  background: none repeat scroll 0 0;
   content: "";
   height: 100%;
   left: 0;
@@ -192,7 +192,7 @@ z-index: 9;
   top: 0;
   width: 100%;
 }
-.slide-one {background-image: url(img/slide-1.jpg)}
+.slide-one {background-image: url(img/slide-1.png)}
 .slide-two {background-image: url(img/slide-2.jpg)}
 .slide-three {background-image: url(img/slide-3.jpg)}
 .slide-text {color: #fff;font-size: 18px;font-weight: 200}

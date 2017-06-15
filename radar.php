@@ -77,18 +77,24 @@
         </div>
     </div> <!-- End mainmenu area -->
 
-    <div class="product-big-title-area">
+    <!--<div class="product-big-title-area">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="product-bit-title text-center">
-                        <h2>Frase ad effettoooo</h2>
+                        <h2>Compare players</h2>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
+    </div>-->
+	<div class="container">
+         <div class="row">
+             <div class="col-md-12 text-center"><br>
+				<h1>Compare players</h1>
+			</div>
+		</div>
+	</div>
        <div class="container">
             <div class="row">
 			
@@ -111,6 +117,11 @@
 				<br>
 				<div id="player1boxmarket" style="display:none">
 				</div>
+				<div class='alert alert-danger fade in' id='danger-retrieve-1'  style='display:none'>You have to login for this feature.</div>
+				<div class='alert alert-danger fade in' id='danger-player-1'  style='display:none'>This player is not on market.</div>
+				<div class='alert alert-danger fade in' id='danger-format-1'  style='display:none'>No valid format.</div>
+
+				
                 <div class="form-group" id="player1box" class="manualCompare1">
 					<h2><span class='player1 manual' >Custom player 1</span></h2><br>
 					<h4>Stamina: <input type="number" id="stamina1" min="1" max="9" class="player1 char1 manual" value="1"></h4><br>
@@ -128,6 +139,7 @@
 						<h4>SetPieces <br><input id='SetPieces1' class='player1 slider char1 manual'  onchange="recomputeValue(1, 'SetPieces')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
 					</div>
                 </div>
+				
 			</div>
 		 
             <div class="col-md-6" id="radarChart">
@@ -154,6 +166,11 @@
 				<br>
 				<div id="player2boxmarket" style="display:none">
 				</div>
+				<div class='alert alert-danger fade in' id='danger-retrieve-2'  style='display:none'>You have to login for this feature.</div>
+				<div class='alert alert-danger fade in' id='danger-player-2'  style='display:none'>This player is not on market.</div>
+				<div class='alert alert-danger fade in' id='danger-format-2'  style='display:none'>No valid format.</div>
+
+				
                 <div class="form-group" id="playerbox2" class="manualCompare2">
 					<h2><span class='player2 manual' >Custom player 2</span></h2><br>
 					<h4>Stamina: <input type="number" id="stamina2" min="1" max="9" class="player2 char2 manual" value="1"></h4><br>
@@ -184,7 +201,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="copyright">
-                        <p>&copy; 2017 HTRadar. All Rights Reserved. Coded with <i class="fa fa-heart"></i> by <a href="http://wpexpand.com" target="_blank">WP Expand</a></p>
+                        <p>&copy; 2017 HTRadar. Coded with <i class="fa fa-heart"></i> by <a href="http://martinagarofalo.altervista.org" target="_blank">Martina Garofalo</a> e Giuseppe Garofalo.</p>
                     </div>
                 </div>                               
             </div>
@@ -306,8 +323,8 @@ for(j=1;j<3;j++){
 
 function recomputeValue(player, skill){
 	
-	
-	if(eval('marketFirstRetrieve'+player))
+	if(eval('radio'+player)=='market')
+		if(eval('marketFirstRetrieve'+player))
 			return;
 	
 	var playerDetails = document.getElementsByClassName("player"+player+" "+eval('radio'+player));
@@ -400,6 +417,16 @@ function changeStyle(heart){
 	
 	
 	function retrieveMarketPlayer(playerNumber){
+		console.log(document.cookie);
+		if (document.cookie.length > 0){
+			var login = document.cookie.indexOf('HT' + "=");
+			if (login != -1){
+				console.log("dentr");
+				document.getElementById("danger-retrieve-"+playerNumber).style.display = 'block';
+                setInterval(function(){ document.getElementById("danger-retrieve-"+playerNumber).style.display = 'none'; }, 5000);
+				return;
+			}
+		}
 		
 		var id = $("#pID"+playerNumber).val();
         if($.isNumeric(id)){
@@ -409,7 +436,12 @@ function changeStyle(heart){
 			dataType: "xml",
             data: {playerID: id, playerNum:playerNumber}
           }).done(function( a, e, o) {
-			  console.log(o);
+			  console.log(o.responseXML);
+			  if(o.responseXML == null){
+				  document.getElementById("danger-player-"+playerNumber).style.display = 'block';
+				  setInterval(function(){ document.getElementById("danger-player-"+playerNumber).style.display = 'none'; }, 5000);
+				  return;
+			  }
 			  htmlBox = o.responseXML.getElementsByTagName("playerBox")[0].innerHTML;
 			  document.getElementById("player"+playerNumber+"boxmarket").innerHTML = htmlBox.substring(9, htmlBox.length-3);
 			  document.getElementById("player"+playerNumber+"boxmarket").style.display='block';
@@ -437,8 +469,15 @@ function changeStyle(heart){
 			  radarOptions.series[playerNumber-1].name = o.responseXML.getElementsByTagName("name")[0].innerHTML;
 			  drawRadar();			  
             }).error(function(err){
-					console.log(err.responseText);
+				console.log(err);
+				  document.getElementById("danger-player-"+playerNumber).style.display = 'block';
+				  setInterval(function(){ document.getElementById("danger-player-"+playerNumber).style.display = 'none'; }, 5000);
+				  return;
 			});
+		}else{
+			document.getElementById("danger-format-"+playerNumber).style.display = 'block';
+			setInterval(function(){ document.getElementById("danger-format-"+playerNumber).style.display = 'none'; }, 5000);
+			return;
 		}
 	}	
 	

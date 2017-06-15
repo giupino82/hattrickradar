@@ -48,6 +48,7 @@
 ?>
 
 
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -142,7 +143,7 @@
                             <ol class="carousel-indicators slide-indicators">
                                 <li data-target="#slide-list" data-slide-to="0" class="active"></li>
                                 <li data-target="#slide-list" data-slide-to="1"></li>
-                                <li data-target="#slide-list" data-slide-to="2"></li>
+                                <!--<li data-target="#slide-list" data-slide-to="2"></li>-->
                             </ol>                            
                         </div>
                     </div>
@@ -160,7 +161,7 @@
                                         <div class="col-md-6 col-md-offset-6">
                                             <div class="slide-content">
                                                 <h2>HT Radar</h2>
-                                                <p>Compare two players from the market to decide who is the best for your team. 
+                                                <p>Compares a custom player and one of the market, changing experience, form and loyalty to see who is the best.<br>Compare two players from the market to decide who is the best for your team. <br>
 												<a href="radar.php" class="readmore">Learn more</a>                                             
                                             </div>
                                         </div>
@@ -180,8 +181,9 @@
                                         <div class="col-md-6 col-md-offset-6">
                                             <div class="slide-content">
                                                 <h2>HT Radar</h2>
-                                                <p>Compares a player of your team and one of the market, changing experience, form and loyalty to see who is the best.</p>
-												<a href="radar.php" class="readmore">Learn more</a>
+                                                <p>Compares a player of your team and one of the market, changing experience, form and loyalty to see who is the best.<br>
+												Compares two players of your team to see who is the best.<br><h3>Coming soon!</h3></p>
+												<!--<a href="radar.php" class="readmore">Learn more</a>-->
                                             </div>
                                         </div>
                                     </div>
@@ -190,7 +192,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="item">
+                <!--<div class="item">
                     <div class="single-slide">
                         <div class="slide-bg slide-three"></div>
                         <div class="slide-text-wrapper">
@@ -209,15 +211,15 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>-->
             </div>
 
         </div>        
     </div> <!-- End slider area -->
     
-    <div class="promo-area">
+ <!--   <div class="promo-area">
         <div class="zigzag-bottom"></div>
-        <div class="container">
+        <!--<div class="container">
             <div class="row">
 			  <a href="radar.php"  style="color:white">
                 <div class="col-md-4 col-sm-6">
@@ -254,7 +256,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="copyright">
-                        <p>&copy; 2017 HTRadar. All Rights Reserved.</p>
+                        <p>&copy; 2017 HTRadar. Coded with <i class="fa fa-heart"></i> by <a href="http://martinagarofalo.altervista.org" target="_blank">Martina Garofalo</a> e Giuseppe Garofalo.</p>
                     </div>
                 </div>
             </div>
