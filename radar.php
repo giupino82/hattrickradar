@@ -124,11 +124,11 @@
 				
                 <div class="form-group" id="player1box" class="manualCompare1">
 					<h2><span class='player1 manual' >Custom player 1</span></h2><br>
-					<h4>Stamina: <input type="number" id="stamina1" min="1" max="9" class="player1 char1 manual" value="1"></h4><br>
+					<h4>Stamina <br><input id='stamina1' class='player1 slider char1 manual' onchange="recomputeValue(1, 'other')" type='text' data-slider-min='1' data-slider-max='9' data-slider-step='1' data-slider-value='1'/><br>
 					<h4>Player form <br><input id='form1' class='player1 slider char1 manual' onchange="recomputeValue(1, 'other')" type='text' data-slider-min='1' data-slider-max='8' data-slider-step='1' data-slider-value='1'/><br>
 					<h4>Experience <br><input id='experience1' class='player1 slider char1 manual'  onchange="recomputeValue(1, 'other')" clatype='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
 					<h4>Loyalty <br><input id='loyalty1' class='player1 slider char1 manual'  onchange="recomputeValue(1, 'other')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-					<h4>Mother club bonus  <i class='player1 fa fa-heart manual' id="motherClubBonus1" style='color:grey' onclick="changeStyle(this);recomputeValue(1, 'other')"></i></h4>
+					<h4>Mother club bonus  <i class='player1 fa fa-heart manual' id="motherClubBonus1" style='color:grey' onclick="changeStyle(this,1);recomputeValue(1, 'other')"></i></h4>
 					<div id='skillBox1' style='display:block'>
 						<h4>Keeper <br><input id='Keeper1' class='player1 slider char1 manual'  onchange="recomputeValue(1, 'Keeper')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
 						<h4>Defender <br><input id='Defender1' class='player1 slider char1 manual'  onchange="recomputeValue(1, 'Defender')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
@@ -144,7 +144,7 @@
 		 
             <div class="col-md-6" id="radarChart">
               <div style="margin-top:20px; text-align:center" ><input type="submit" value="Compare"  onclick="drawRadar(); " style="display:none"/></div>
-              <div id="container"></div>
+              <div id="container"></div><!--style="position: fixed;overflow: hidden;"-->
             </div>
 			
 			<div class="col-md-3" style="text-align:center">
@@ -156,7 +156,7 @@
 					 <label><input type="radio" name="optradio2" onchange="document.getElementById('playerbox2').style.display='none';document.getElementById('player2boxmarket').style.display='block';document.getElementById('marketCompare2').style.display='block';radio2='market';recomputeValue(2,'other');">Market</label>
 				  </div>
 			
-				<div class="marketCompare2"id="marketCompare2"  style="display:none">
+				<div class="marketCompare2 bluePlayer"id="marketCompare2"  style="display:none">
 					<div class="form-group">
 						<label for="pID2">Player ID</label>
 						<input type="text" class="pID2" id="pID2" style="font-size: x-small"/>
@@ -171,13 +171,13 @@
 				<div class='alert alert-danger fade in' id='danger-format-2'  style='display:none'>No valid format.</div>
 
 				
-                <div class="form-group" id="playerbox2" class="manualCompare2">
+                <div class="form-group bluePlayer" id="playerbox2" class="manualCompare2">
 					<h2><span class='player2 manual' >Custom player 2</span></h2><br>
-					<h4>Stamina: <input type="number" id="stamina2" min="1" max="9" class="player2 char2 manual" value="1"></h4><br>
+					<h4>Stamina <br><input id='stamina2' class='player2 slider char2 manual' onchange="recomputeValue(2, 'other')" type='text' data-slider-min='1' data-slider-max='9' data-slider-step='1' data-slider-value='1'/><br>
 					<h4>Player form <br><input id='form2' class='player2 slider char2 manual' onchange="recomputeValue(2, 'other')" type='text' data-slider-min='1' data-slider-max='8' data-slider-step='1' data-slider-value='1'/><br>
 					<h4>Experience <br><input id='experience2' class='player2 slider char2 manual'  onchange="recomputeValue(2, 'other')" clatype='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
 					<h4>Loyalty <br><input id='loyalty2' class='player2 slider char2 manual'  onchange="recomputeValue(2, 'other')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-					<h4>Mother club bonus  <i class='player2 fa fa-heart manual' id="motherClubBonus2" style='color:grey' onclick="changeStyle(this);recomputeValue(2, 'other')"></i></h4>
+					<h4>Mother club bonus  <i class='player2 fa fa-heart manual' id="motherClubBonus2" style='color:grey' onclick="changeStyle(this,2);recomputeValue(2, 'other')"></i></h4>
 					<div id='skillBox2' style='display:block'>
 						<h4>Keeper <br><input id='Keeper2' class='player2 slider char2 manual'  onchange="recomputeValue(2, 'Keeper')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
 						<h4>Defender <br><input id='Defender2' class='player2 slider char2 manual'  onchange="recomputeValue(2, 'Defender')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
@@ -255,7 +255,6 @@ radarOptions = {
 			},
 
 			title: {
-				//text: 'Your Player vs your Player etc...',
 				text:'',
 				x: -80
 			},
@@ -322,24 +321,18 @@ for(j=1;j<3;j++){
 }
 
 function recomputeValue(player, skill){
-	
+
 	if(eval('radio'+player)=='market')
 		if(eval('marketFirstRetrieve'+player))
 			return;
-	
 	var playerDetails = document.getElementsByClassName("player"+player+" "+eval('radio'+player));
-	
-	//var playerDetails = playerDetailsNoCat.getElementsByClassName(radio);
-	//var playerDetails = document.querySelectorAll(".player"+player);
-	//console.log("."+type+"Compare"+player+" ."+"player"+player);
-			//console.log(playerDetails.input#Scorer1);
-	var stamina = Number(playerDetails["stamina"+player].value);
+	//var stamina = Number(playerDetails["stamina"+player].value);
 	if(playerDetails["motherClubBonus"+player].style.color == "green")
 		motherClubBonus = 0.5;
 	else 
 		motherClubBonus = 0;
 	
-	var genericSkillSlider = ['form','experience','loyalty'];
+	var genericSkillSlider = ['stamina','form','experience','loyalty'];
 	var sliderSkill = {};
 	for(i=0;i<genericSkillSlider.length;i++){
 		sliderSkill[genericSkillSlider[i]] = playerDetails[genericSkillSlider[i]+player].value;
@@ -348,15 +341,12 @@ function recomputeValue(player, skill){
 	if(skill == 'other'){
 
 		if(radarSkill[player]){
-			console.log(radarSkill[player]);
 			for(var key in radarSkill[player]){
-				//prendere dagli slider
 				temp = 0;
 				temp += Number(playerDetails[key+player].value);
-				//temp += radarSkill[player][key];
 				temp += sliderSkill.loyalty/20 + motherClubBonus + (Math.log10(sliderSkill.experience)*(4/3));
 				temp *= Math.pow(((sliderSkill.form - 0.5)/7), 0.45);
-				temp *= Math.pow(((stamina + 6.5)/14), 0.6);	
+				temp *= Math.pow(((sliderSkill.stamina + 6.5)/14), 0.6);	
 				radarSkill[player][key] = Math.round(temp * 100) / 100;
 			}
 		}	
@@ -365,7 +355,7 @@ function recomputeValue(player, skill){
 		newValue = document.getElementById(skill+""+player).value;
 		temp = newValue;
 		temp += sliderSkill.loyalty/20 + motherClubBonus + (Math.log10(sliderSkill.experience)*(4/3));
-		temp *= Math.pow(((sliderSkill.form - 0.5)/7), 0.45) * Math.pow(((stamina + 6.5)/14), 0.6);	
+		temp *= Math.pow(((sliderSkill.form - 0.5)/7), 0.45) * Math.pow(((sliderSkill.stamina + 6.5)/14), 0.6);	
 		radarSkill[player][skill] = Math.round(temp * 100) / 100;
 		
 	}
@@ -375,13 +365,10 @@ function recomputeValue(player, skill){
 
 function redrawRadar(player){
 	var chartBox = document.getElementById('container');
-	//if(chartBox.innerHTML!=""){
 		newArray = [];
 		for(i=0;i<utilSkill.length;i++){
 			newArray[i] = radarSkill[player][utilSkill[i]];
 		}
-		console.log(chart.series);
-		//chart.series[player-1].update({data: newArray});
 		chart.series[player-1].setData(newArray, true);
 		
 		if(eval('radio'+player) == 'manual'){
@@ -389,16 +376,18 @@ function redrawRadar(player){
 			changeName = false;
 			chart.redraw();
 		}
-		//chart.redraw();
-		//radarOptions.series[player-1].data = newArray;
-		//drawRadar();
-	//}
 }
 
-function changeStyle(heart){
-	if(heart.style.color == "green")
-		heart.style.color = "grey";
-	else heart.style.color = "green";
+function changeStyle(heart, player){
+	if(player == 1){
+		if(heart.style.color == "green")
+			heart.style.color = "grey";
+		else heart.style.color = "green";
+	}else{
+		if(heart.style.color == "rgb(20, 155, 223)")
+			heart.style.color = "grey";
+		else heart.style.color = "#149bdf";
+	}
 }
 
 	function drawRadar(){
@@ -407,7 +396,6 @@ function changeStyle(heart){
 	
 	function showHideBox(checkbox, number){
 		box = document.getElementById("skillBox"+number+"market");
-		console.log(checkbox.checked);
 		
 		if(checkbox.checked && box.style.display == "none")
 			box.style.display = "block"; 
@@ -419,9 +407,8 @@ function changeStyle(heart){
 	function retrieveMarketPlayer(playerNumber){
 		console.log(document.cookie);
 		if (document.cookie.length > 0){
-			var login = document.cookie.indexOf('HT' + "=");
-			if (login != -1){
-				console.log("dentr");
+			var login = document.cookie.indexOf('htRadarOauthToken=');
+			if (login == -1){
 				document.getElementById("danger-retrieve-"+playerNumber).style.display = 'block';
                 setInterval(function(){ document.getElementById("danger-retrieve-"+playerNumber).style.display = 'none'; }, 5000);
 				return;
@@ -436,7 +423,6 @@ function changeStyle(heart){
 			dataType: "xml",
             data: {playerID: id, playerNum:playerNumber}
           }).done(function( a, e, o) {
-			  console.log(o.responseXML);
 			  if(o.responseXML == null){
 				  document.getElementById("danger-player-"+playerNumber).style.display = 'block';
 				  setInterval(function(){ document.getElementById("danger-player-"+playerNumber).style.display = 'none'; }, 5000);
@@ -448,11 +434,9 @@ function changeStyle(heart){
 			  
 			  $(".slidermarket"+playerNumber).slider({
 					formatter: function(value) {
-						console.log(value);
 						return value;
 					}
 				});
-			  //$(".char"+playerNumber).on("change",recomputeValue(playerNumber));
 			  
 			  var stringArray = o.responseXML.getElementsByTagName("serie")[0].innerHTML;
 			  stringArray = stringArray.substring(1, stringArray.length-1);
@@ -469,7 +453,6 @@ function changeStyle(heart){
 			  radarOptions.series[playerNumber-1].name = o.responseXML.getElementsByTagName("name")[0].innerHTML;
 			  drawRadar();			  
             }).error(function(err){
-				console.log(err);
 				  document.getElementById("danger-player-"+playerNumber).style.display = 'block';
 				  setInterval(function(){ document.getElementById("danger-player-"+playerNumber).style.display = 'none'; }, 5000);
 				  return;
