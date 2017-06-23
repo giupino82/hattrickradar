@@ -88,7 +88,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="logo">
-                        <h1><a href="index.html">HT<span>Radar</span></a></h1>
+                        <h1><a href="index.php">HT<span>Radar</span></a></h1>
                     </div>
                 </div>
                 
