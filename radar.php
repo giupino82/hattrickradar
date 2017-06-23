@@ -77,17 +77,6 @@
         </div>
     </div> <!-- End mainmenu area -->
 
-    <!--<div class="product-big-title-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="product-bit-title text-center">
-                        <h2>Compare players</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>-->
 	<div class="container">
          <div class="row">
              <div class="col-md-12 text-center"><br>
@@ -95,67 +84,119 @@
 			</div>
 		</div>
 	</div>
-       <div class="container">
-            <div class="row">
-			
-			  <div class="col-md-3" style="text-align:center">
-				 <br>
-				 <div class="radio">
-					 <label><input type="radio" name="optradio1" checked="checked" onchange="document.getElementById('player1box').style.display='block';document.getElementById('marketCompare1').style.display='none';document.getElementById('player1boxmarket').style.display='none';radio1 = 'manual';recomputeValue(1,'other');">Manual</label>
-				 </div>
-				 <div class="radio">
-					 <label><input type="radio" name="optradio1" onchange="document.getElementById('marketCompare1').style.display='block';document.getElementById('player1box').style.display='none';document.getElementById('player1boxmarket').style.display='block';radio1 = 'market';recomputeValue(1,'other');">Market</label>
-				  </div>
-			
-			   <div class="marketCompare1" id="marketCompare1" style="display:none">
-					<div class="form-group">
-						<label for="pID1">Player ID</label>
-						<input type="text" class="pID1" id="pID1" style="font-size: x-small"/>
-						<span class="glyphicon glyphicon-play" aria-hidden="true" style="size:20px" onclick="retrieveMarketPlayer(1);marketFirstRetrieve1=false"></span>
-					</div>
+	
+	<div class="container">
+		<div class="row">
+		  <div class="col-md-3" style="text-align:center">
+			 <br>
+			 <!--Manual-->
+			 <div class="radio">
+				 <label><input type="radio" name="optradio1" checked="checked" onchange="document.getElementById('teamCompare1').style.display='none';document.getElementById('player1boxteam').style.display='none';document.getElementById('player1box').style.display='block';document.getElementById('marketCompare1').style.display='none';document.getElementById('player1boxmarket').style.display='none';radio1 = 'manual';recomputeValue(1,'other');">Manual</label>
+			 </div>
+			 <!--Market-->
+			 <div class="radio">
+				 <label><input type="radio" name="optradio1" onchange="document.getElementById('teamCompare1').style.display='none';document.getElementById('player1boxselect').style.display='none';document.getElementById('marketCompare1').style.display='block';document.getElementById('player1box').style.display='none';document.getElementById('player1boxmarket').style.display='block';radio1 = 'market';recomputeValue(1,'other');">Market</label>
+			  </div>
+			  <!--Team-->
+			  <div class="radio">
+				 <label><input type="radio" name="optradio1" onchange="retrieveTeams(1);document.getElementById('marketCompare1').style.display='none';document.getElementById('teamCompare1').style.display='block';document.getElementById('player1boxselect').style.display='block';document.getElementById('player1box').style.display='none';document.getElementById('player1boxmarket').style.display='none';radio1 = 'select';recomputeValue(1,'other');">Team</label>
+			  </div>
+			 <br>
+			 
+			 <!--From Team-->
+			<div class="teamCompare1" id="teamCompare1" style="display:none">
+				<div class="form-group">
+					<label for="selectPlayer1">Teams</label>
+					<select class='selectpicker' id="selectPlayer1" data-live-search='true' title='Choose one player...' onchange='retrieveSelectPlayer(this,1);selectFirstRetrieve1=false'>
+					</select>
+				<!--	<span class="glyphicon glyphicon-play" aria-hidden="true" style="size:20px" onclick="retrieveMarketPlayer(1);marketFirstRetrieve1=false"></span>-->
 				</div>
-				<br>
-				<div id="player1boxmarket" style="display:none">
-				</div>
-				<div class='alert alert-danger fade in' id='danger-retrieve-1'  style='display:none'>You have to login for this feature.</div>
-				<div class='alert alert-danger fade in' id='danger-player-1'  style='display:none'>This player is not on market.</div>
-				<div class='alert alert-danger fade in' id='danger-format-1'  style='display:none'>No valid format.</div>
-
-				
-                <div class="form-group" id="player1box" class="manualCompare1">
-					<h2><span class='player1 manual' >Custom player 1</span></h2><br>
-					<h4>Stamina <br><input id='stamina1' class='player1 slider char1 manual' onchange="recomputeValue(1, 'other')" type='text' data-slider-min='1' data-slider-max='9' data-slider-step='1' data-slider-value='1'/><br>
-					<h4>Player form <br><input id='form1' class='player1 slider char1 manual' onchange="recomputeValue(1, 'other')" type='text' data-slider-min='1' data-slider-max='8' data-slider-step='1' data-slider-value='1'/><br>
-					<h4>Experience <br><input id='experience1' class='player1 slider char1 manual'  onchange="recomputeValue(1, 'other')" clatype='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-					<h4>Loyalty <br><input id='loyalty1' class='player1 slider char1 manual'  onchange="recomputeValue(1, 'other')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-					<h4>Mother club bonus  <i class='player1 fa fa-heart manual' id="motherClubBonus1" style='color:grey' onclick="changeStyle(this,1);recomputeValue(1, 'other')"></i></h4>
-					<div id='skillBox1' style='display:block'>
-						<h4>Keeper <br><input id='Keeper1' class='player1 slider char1 manual'  onchange="recomputeValue(1, 'Keeper')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-						<h4>Defender <br><input id='Defender1' class='player1 slider char1 manual'  onchange="recomputeValue(1, 'Defender')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-						<h4>Playmaker <br><input id='Playmaker1' class='player1 slider char1 manual'  onchange="recomputeValue(1, 'Playmaker')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-						<h4>Passing <br><input id='Passing1' class='player1 slider char1 manual'  onchange="recomputeValue(1, 'Passing')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-						<h4>Winger <br><input id='Winger1' class='player1 slider char1 manual'  onchange="recomputeValue(1, 'Winger')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-						<h4>Scorer <br><input id='Scorer1' class='player1 slider char1 manual'  onchange="recomputeValue(1, 'Scorer')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-						<h4>SetPieces <br><input id='SetPieces1' class='player1 slider char1 manual'  onchange="recomputeValue(1, 'SetPieces')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-					</div>
-                </div>
-				
 			</div>
-		 
-            <div class="col-md-6" id="radarChart">
-              <div style="margin-top:20px; text-align:center" ><input type="submit" value="Compare"  onclick="drawRadar(); " style="display:none"/></div>
-              <div id="container"></div><!--style="position: fixed;overflow: hidden;"-->
-            </div>
 			
-			<div class="col-md-3" style="text-align:center">
-			   <br>
-			   <div class="radio">
-					 <label><input type="radio" name="optradio2" checked="checked" onchange="document.getElementById('marketCompare2').style.display='none';document.getElementById('player2boxmarket').style.display='none';document.getElementById('playerbox2').style.display='block';radio2 = 'manual';recomputeValue(2,'other');">Manual</label>
-				 </div>
-				 <div class="radio">
-					 <label><input type="radio" name="optradio2" onchange="document.getElementById('playerbox2').style.display='none';document.getElementById('player2boxmarket').style.display='block';document.getElementById('marketCompare2').style.display='block';radio2='market';recomputeValue(2,'other');">Market</label>
-				  </div>
+			<div id="player1boxteam" style="display:none">
+			</div>			
+		
+			<!--From Market-->
+		   <div class="marketCompare1" id="marketCompare1" style="display:none">
+				<div class="form-group">
+					<label for="pID1">Player ID</label>
+					<input type="text" class="pID1" id="pID1" style="font-size: x-small"/>
+					<span class="glyphicon glyphicon-play" aria-hidden="true" style="size:20px" onclick="retrieveMarketPlayer(1);marketFirstRetrieve1=false"></span>
+				</div>
+			</div>
+			<br>
 			
+			
+			<div class='alert alert-danger fade in' id='danger-team-1'  style='display:none'>Error in retrieve teams.</div>
+			<div class='alert alert-danger fade in' id='danger-retrieve-1'  style='display:none'>You have to login for this feature.</div>
+			<div class='alert alert-danger fade in' id='danger-player-1'  style='display:none'>This player is not on market.</div>
+			<div class='alert alert-danger fade in' id='danger-format-1'  style='display:none'>No valid format.</div>
+			
+			<!--Team-->
+			<div id="player1boxselect" style="display:none">
+			</div>
+			
+			<!--Market 1-->
+			<div id="player1boxmarket" style="display:none">
+			</div>
+			
+			<!--Manual 1-->
+			<div class="form-group" id="player1box" class="manualCompare1">
+				<h2><span class='player1 manual' >Custom player 1</span></h2><br>
+				<h4>Stamina <br><input id='stamina1' class='player1 slider char1 manual1' onchange="recomputeValue(1, 'other')" type='text' data-slider-min='1' data-slider-max='9' data-slider-step='1' data-slider-value='1'/><br>
+				<h4>Player form <br><input id='form1' class='player1 slider char1 manual1' onchange="recomputeValue(1, 'other')" type='text' data-slider-min='1' data-slider-max='8' data-slider-step='1' data-slider-value='1'/><br>
+				<h4>Experience <br><input id='experience1' class='player1 slider char1 manual1'  onchange="recomputeValue(1, 'other')" clatype='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+				<h4>Loyalty <br><input id='loyalty1' class='player1 slider char1 manual1'  onchange="recomputeValue(1, 'other')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+				<h4>Mother club bonus  <i class='player1 fa fa-heart manual1' id="motherClubBonus1" style='color:grey' onclick="changeStyle(this,1);recomputeValue(1, 'other')"></i></h4>
+				<div id='skillBox1' style='display:block'>
+					<h4>Keeper <br><input id='Keeper1' class='player1 slider char1 manual1'  onchange="recomputeValue(1, 'Keeper')" type='text' data-slider-min='0' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+					<h4>Defender <br><input id='Defender1' class='player1 slider char1 manual1'  onchange="recomputeValue(1, 'Defender')" type='text' data-slider-min='0' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+					<h4>Playmaker <br><input id='Playmaker1' class='player1 slider char1 manual1'  onchange="recomputeValue(1, 'Playmaker')" type='text' data-slider-min='0' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+					<h4>Passing <br><input id='Passing1' class='player1 slider char1 manual1'  onchange="recomputeValue(1, 'Passing')" type='text' data-slider-min='0' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+					<h4>Winger <br><input id='Winger1' class='player1 slider char1 manual1'  onchange="recomputeValue(1, 'Winger')" type='text' data-slider-min='0' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+					<h4>Scorer <br><input id='Scorer1' class='player1 slider char1 manual1'  onchange="recomputeValue(1, 'Scorer')" type='text' data-slider-min='0' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+					<h4>SetPieces <br><input id='SetPieces1' class='player1 slider char1 manual1'  onchange="recomputeValue(1, 'SetPieces')" type='text' data-slider-min='0' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+				</div>
+			</div>
+			
+		</div>
+		<!--end player 1-->
+	 
+		<div class="col-md-6" id="radarChart">
+		  <div style="margin-top:20px; text-align:center" ><input type="submit" value="Compare"  onclick="drawRadar(); " style="display:none"/></div>
+		  <div id="container"></div><!--style="position: fixed;overflow: hidden;"-->
+		</div>
+		<!--end radar-->
+		
+		
+		<div class="col-md-3" style="text-align:center">
+		   <br>
+			<!--Manual-->
+			<div class="radio">
+				 <label><input type="radio" name="optradio2" checked="checked" onchange="document.getElementById('teamCompare2').style.display='none';document.getElementById('player2boxteam').style.display='none';document.getElementById('marketCompare2').style.display='none';document.getElementById('player2boxmarket').style.display='none';document.getElementById('playerbox2').style.display='block';radio2 = 'manual';recomputeValue(2,'other');">Manual</label>
+			 </div>
+			 <!--Market-->
+			 <div class="radio">
+				 <label><input type="radio" name="optradio2" onchange="document.getElementById('teamCompare2').style.display='none';document.getElementById('player2boxselect').style.display='none';document.getElementById('playerbox2').style.display='none';document.getElementById('player2boxmarket').style.display='block';document.getElementById('marketCompare2').style.display='block';radio2='market';recomputeValue(2,'other');">Market</label>
+			  </div>
+			  <!--Team-->
+			 <div class="radio">
+				 <label><input type="radio" name="optradio2" onchange="retrieveTeams(2);document.getElementById('marketCompare2').style.display='none';document.getElementById('teamCompare2').style.display='block';document.getElementById('player2boxselect').style.display='block';document.getElementById('playerbox2').style.display='none';document.getElementById('player2boxmarket').style.display='none';radio2 = 'select';recomputeValue(2,'other');">Team</label>
+			  </div>
+			  
+			  <br>
+			<!--From Team-->
+			<div class="teamCompare2" id="teamCompare2" style="display:none">
+				<div class="form-group">
+					<label for="selectPlayer2">Teams</label>
+					 <select class='selectpicker' id="selectPlayer2" data-live-search='true' title='Choose one player...' onchange='retrieveSelectPlayer(this,2);selectFirstRetrieve2=false'>
+					</select>
+				<!--	<span class="glyphicon glyphicon-play" aria-hidden="true" style="size:20px" onclick="retrieveMarketPlayer(1);marketFirstRetrieve1=false"></span>-->
+				</div>
+			</div>
+			
+			<!--From Market-->
+			<div class="bluePlayer">
 				<div class="marketCompare2 bluePlayer"id="marketCompare2"  style="display:none">
 					<div class="form-group">
 						<label for="pID2">Player ID</label>
@@ -166,32 +207,45 @@
 				<br>
 				<div id="player2boxmarket" style="display:none">
 				</div>
-				<div class='alert alert-danger fade in' id='danger-retrieve-2'  style='display:none'>You have to login for this feature.</div>
-				<div class='alert alert-danger fade in' id='danger-player-2'  style='display:none'>This player is not on market.</div>
-				<div class='alert alert-danger fade in' id='danger-format-2'  style='display:none'>No valid format.</div>
-
-				
-                <div class="form-group bluePlayer" id="playerbox2" class="manualCompare2">
-					<h2><span class='player2 manual' >Custom player 2</span></h2><br>
-					<h4>Stamina <br><input id='stamina2' class='player2 slider char2 manual' onchange="recomputeValue(2, 'other')" type='text' data-slider-min='1' data-slider-max='9' data-slider-step='1' data-slider-value='1'/><br>
-					<h4>Player form <br><input id='form2' class='player2 slider char2 manual' onchange="recomputeValue(2, 'other')" type='text' data-slider-min='1' data-slider-max='8' data-slider-step='1' data-slider-value='1'/><br>
-					<h4>Experience <br><input id='experience2' class='player2 slider char2 manual'  onchange="recomputeValue(2, 'other')" clatype='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-					<h4>Loyalty <br><input id='loyalty2' class='player2 slider char2 manual'  onchange="recomputeValue(2, 'other')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-					<h4>Mother club bonus  <i class='player2 fa fa-heart manual' id="motherClubBonus2" style='color:grey' onclick="changeStyle(this,2);recomputeValue(2, 'other')"></i></h4>
-					<div id='skillBox2' style='display:block'>
-						<h4>Keeper <br><input id='Keeper2' class='player2 slider char2 manual'  onchange="recomputeValue(2, 'Keeper')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-						<h4>Defender <br><input id='Defender2' class='player2 slider char2 manual'  onchange="recomputeValue(2, 'Defender')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-						<h4>Playmaker <br><input id='Playmaker2' class='player2 slider char2 manual'  onchange="recomputeValue(2, 'Playmaker')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-						<h4>Passing <br><input id='Passing2' class='player2 slider char2 manual'  onchange="recomputeValue(2, 'Passing')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-						<h4>Winger <br><input id='Winger2' class='player2 slider char2 manual'  onchange="recomputeValue(2, 'Winger')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-						<h4>Scorer <br><input id='Scorer2' class='player2 slider char2 manual'  onchange="recomputeValue(2, 'Scorer')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-						<h4>SetPieces <br><input id='SetPieces2' class='player2 slider char2 manual'  onchange="recomputeValue(2, 'SetPieces')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-					</div>
-                </div>
-			 </div>
+			</div>
+			
+			
+			<div class='alert alert-danger fade in' id='danger-team-2'  style='display:none'>Error in retrieve teams.</div>
+			<div class='alert alert-danger fade in' id='danger-retrieve-2'  style='display:none'>You have to login for this feature.</div>
+			<div class='alert alert-danger fade in' id='danger-player-2'  style='display:none'>This player is not on market.</div>
+			<div class='alert alert-danger fade in' id='danger-format-2'  style='display:none'>No valid format.</div>
+			
+			
+			<!--Team player 2-->
+			<div id="player2boxteam" style="display:none">
+			</div>
+			<br>
+			<div id="player2boxselect" style="display:none">
+			</div>
 			  
-         </div>
-      </div>
+			
+			<!--Manual 2-->			
+			<div class="form-group bluePlayer" id="playerbox2" class="manualCompare2">
+				<h2><span class='player2 manual' >Custom player 2</span></h2><br>
+				<h4>Stamina <br><input id='stamina2' class='player2 slider char2 manual2' onchange="recomputeValue(2, 'other')" type='text' data-slider-min='1' data-slider-max='9' data-slider-step='1' data-slider-value='1'/><br>
+				<h4>Player form <br><input id='form2' class='player2 slider char2 manual2' onchange="recomputeValue(2, 'other')" type='text' data-slider-min='1' data-slider-max='8' data-slider-step='1' data-slider-value='1'/><br>
+				<h4>Experience <br><input id='experience2' class='player2 slider char2 manual2'  onchange="recomputeValue(2, 'other')" clatype='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+				<h4>Loyalty <br><input id='loyalty2' class='player2 slider char2 manual2'  onchange="recomputeValue(2, 'other')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+				<h4>Mother club bonus  <i class='player2 fa fa-heart manual2' id="motherClubBonus2" style='color:grey' onclick="changeStyle(this,2);recomputeValue(2, 'other')"></i></h4>
+				<div id='skillBox2' style='display:block'>
+					<h4>Keeper <br><input id='Keeper2' class='player2 slider char2 manual2'  onchange="recomputeValue(2, 'Keeper')" type='text' data-slider-min='0' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+					<h4>Defender <br><input id='Defender2' class='player2 slider char2 manual2'  onchange="recomputeValue(2, 'Defender')" type='text' data-slider-min='0' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+					<h4>Passing <br><input id='Passing2' class='player2 slider char2 manual2'  onchange="recomputeValue(2, 'Passing')" type='text' data-slider-min='0' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+					<h4>Winger <br><input id='Winger2' class='player2 slider char2 manual2'  onchange="recomputeValue(2, 'Winger')" type='text' data-slider-min='0' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+					<h4>Scorer <br><input id='Scorer2' class='player2 slider char2 manual2'  onchange="recomputeValue(2, 'Scorer')" type='text' data-slider-min='0' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+					<h4>SetPieces <br><input id='SetPieces2' class='player2 slider char2 manual2'  onchange="recomputeValue(2, 'SetPieces')" type='text' data-slider-min='0' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+				</div>
+			</div>
+		 </div>
+		  <!--end player 2-->
+		  
+	 </div><!--end row-->
+  </div><!--end main container-->
     
     
    
@@ -227,6 +281,11 @@
 	<script src="utils/bootstrap-slider-master/bootstrap-slider.min.js"></script>
 	<link rel="stylesheet" href="utils/bootstrap-slider-master/bootstrap-slider.min.css"></link>
 	
+	<link rel="stylesheet" href="utils/bootstrap-select.min.css"></link>
+	<script src="utils/bootstrap-select.js"></script>
+	
+
+	
 	<!--Chart-->
 	<!--<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>-->
 	<script src="https://code.highcharts.com/highcharts.js"></script>
@@ -240,74 +299,77 @@
 
 <script>
 
-$(".slider").slider({
-	formatter: function(value) {
-		return value;
-	}
-});
+	$(".slider").slider({
+		formatter: function(value) {
+			return value;
+		}
+	});
 
-var chart;
-radarOptions = {
+	var chart;
+	radarOptions = {
 
-			chart: {
-				polar: true,
-				type: 'line'
-			},
+				chart: {
+					polar: true,
+					type: 'line'
+				},
 
-			title: {
-				text:'',
-				x: -80
-			},
+				title: {
+					text:'',
+					x: -80
+				},
 
-			pane: {
-				size: '80%'
-			},
+				pane: {
+					size: '80%'
+				},
 
-			xAxis: {
-				categories: ['Keeper','Defender','Playmaker','Passing','Winger','Scorer','SetPieces'],
-				tickmarkPlacement: 'on',
-				lineWidth: 0
-			},
+				xAxis: {
+					categories: ['Keeper','Defender','Playmaker','Passing','Winger','Scorer','SetPieces'],
+					tickmarkPlacement: 'on',
+					lineWidth: 0
+				},
 
-			yAxis: {
-				gridLineInterpolation: 'polygon',
-				lineWidth: 0,
-				min: 0
-				//tickInterval:2
-			},
+				yAxis: {
+					gridLineInterpolation: 'polygon',
+					lineWidth: 0,
+					min: 0
+					//tickInterval:2
+				},
 
-			tooltip: {
-				shared: true,
-				pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y}</b><br/>'
-			},
+				tooltip: {
+					shared: true,
+					pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y}</b><br/>'
+				},
 
-			legend: {
-				align: 'center'				
-			},
+				legend: {
+					align: 'center'				
+				},
 
-			series: [{
-				name: 'Custom Player 1',
-				//data: [],
-				pointPlacement: 'on',
-				color: '#277f31'
-			}, {
-				name: 'Custom Player 2',
-				//data: [],
-				pointPlacement: 'on'
-			}]
+				series: [{
+					name: 'Custom Player 1',
+					//data: [],
+					pointPlacement: 'on',
+					color: '#277f31'
+				}, {
+					name: 'Custom Player 2',
+					//data: [],
+					pointPlacement: 'on'
+				}]
 
-		};
-		
-//util object to save recomputed value 
-var radio1 = 'manual';
-var radio2 = 'manual';
+			};
+			
+	//util object to save recomputed value 
+	var radio1 = 'manual';
+	var radio2 = 'manual';
 
-var marketFirstRetrieve1 = true;
-var marketFirstRetrieve2 = true;
+	var marketFirstRetrieve1 = true;
+	var marketFirstRetrieve2 = true;
+	var selectFirstRetrieve1 = true;
+	var selectFirstRetrieve2 = true;
 
-var radarSkill = {};
-var utilSkill = ['Keeper','Defender','Playmaker','Passing','Winger','Scorer','SetPieces'];
-for(j=1;j<3;j++){
+	var radarSkill = {};
+	var utilSkill = ['Keeper','Defender','Playmaker','Passing','Winger','Scorer','SetPieces'];
+	//initially create chart
+	for(j=1;j<3;j++){
 	radarSkill[j] = {};
 	radarSkillName = radarOptions.xAxis.categories;
 	newArray = [];
@@ -320,51 +382,57 @@ for(j=1;j<3;j++){
 	drawRadar();
 }
 
-function recomputeValue(player, skill){
+	function recomputeValue(player, skill){
 
-	if(eval('radio'+player)=='market')
-		if(eval('marketFirstRetrieve'+player))
-			return;
-	var playerDetails = document.getElementsByClassName("player"+player+" "+eval('radio'+player));
-	//var stamina = Number(playerDetails["stamina"+player].value);
-	if(playerDetails["motherClubBonus"+player].style.color == "green")
-		motherClubBonus = 0.5;
-	else 
-		motherClubBonus = 0;
-	
-	var genericSkillSlider = ['stamina','form','experience','loyalty'];
-	var sliderSkill = {};
-	for(i=0;i<genericSkillSlider.length;i++){
-		sliderSkill[genericSkillSlider[i]] = playerDetails[genericSkillSlider[i]+player].value;
-	}
-	
-	if(skill == 'other'){
-
-		if(radarSkill[player]){
-			for(var key in radarSkill[player]){
-				temp = 0;
-				temp += Number(playerDetails[key+player].value);
-				temp += sliderSkill.loyalty/20 + motherClubBonus + (Math.log10(sliderSkill.experience)*(4/3));
-				temp *= Math.pow(((sliderSkill.form - 0.5)/7), 0.45);
-				temp *= Math.pow(((sliderSkill.stamina + 6.5)/14), 0.6);	
-				radarSkill[player][key] = Math.round(temp * 100) / 100;
-			}
-		}	
-
-	}else{
-		newValue = document.getElementById(skill+""+player).value;
-		temp = newValue;
-		temp += sliderSkill.loyalty/20 + motherClubBonus + (Math.log10(sliderSkill.experience)*(4/3));
-		temp *= Math.pow(((sliderSkill.form - 0.5)/7), 0.45) * Math.pow(((sliderSkill.stamina + 6.5)/14), 0.6);	
-		radarSkill[player][skill] = Math.round(temp * 100) / 100;
+		//no player retrieved from market yet
+		if(eval('radio'+player)=='market'){
+			if(eval('marketFirstRetrieve'+player))
+				return;
+		}else if(eval('radio'+player)=='select'){
+				if(eval('selectFirstRetrieve'+player))
+					return;
+		}
+		var playerDetails = document.getElementsByClassName(eval('radio'+player)+""+player);
 		
-	}
-	
-	redrawRadar(player);
-}
+		if(playerDetails["motherClubBonus"+player].style.color == "grey")
+			motherClubBonus = 0;
+		else 
+			motherClubBonus = 0.5;
+		
+		var genericSkillSlider = ['stamina','form','experience','loyalty'];
+		var sliderSkill = {};
+		for(i=0;i<genericSkillSlider.length;i++){
+			sliderSkill[genericSkillSlider[i]] = Number(playerDetails[genericSkillSlider[i]+player].value);
+		}
+		
+		//recompute all value
+		if(skill == 'other'){
 
-function redrawRadar(player){
-	var chartBox = document.getElementById('container');
+			if(radarSkill[player]){
+				for(var key in radarSkill[player]){
+					temp = 0;
+					temp += Number(playerDetails[key+player].value);
+					temp += sliderSkill.loyalty/20 + motherClubBonus + (Math.log10(sliderSkill.experience)*(4/3));
+					temp *= Math.pow(((sliderSkill.form - 0.5)/7), 0.45);
+					temp *= Math.pow(((sliderSkill.stamina + 6.5)/14), 0.6);	
+					radarSkill[player][key] = (Math.round(temp * 100)) / 100;
+				}
+			}	
+
+		}else{ //recompute single value
+			newValue = Number(document.getElementById(skill+""+player).value);
+			temp = newValue;
+			temp += sliderSkill.loyalty/20 + motherClubBonus + (Math.log10(sliderSkill.experience)*(4/3));
+			temp *= Math.pow(((sliderSkill.form - 0.5)/7), 0.45) ;
+			temp *= Math.pow(((sliderSkill.stamina + 6.5)/14), 0.6);			
+			radarSkill[player][skill] = (Math.round(temp * 100)) / 100;
+		}
+		
+		redrawRadar(player);
+	}
+
+	function redrawRadar(player){
+		var chartBox = document.getElementById('container');
 		newArray = [];
 		for(i=0;i<utilSkill.length;i++){
 			newArray[i] = radarSkill[player][utilSkill[i]];
@@ -373,39 +441,45 @@ function redrawRadar(player){
 		
 		if(eval('radio'+player) == 'manual'){
 			chart.series[player-1].update({name:'Custom Player '+player}, false);
-			changeName = false;
+			chart.redraw();
+		}else if(eval('radio'+player) == 'market'){
+			name = document.getElementsByClassName("market"+player)[0].innerHTML;
+			chart.series[player-1].update({name:name}, false);
+			chart.redraw();
+		}else if(eval('radio'+player) == 'select'){
+			name = document.getElementsByClassName("select"+player)[0].innerHTML;
+			chart.series[player-1].update({name:name}, false);
 			chart.redraw();
 		}
-}
-
-function changeStyle(heart, player){
-	if(player == 1){
-		if(heart.style.color == "green")
-			heart.style.color = "grey";
-		else heart.style.color = "green";
-	}else{
-		if(heart.style.color == "rgb(20, 155, 223)")
-			heart.style.color = "grey";
-		else heart.style.color = "#149bdf";
 	}
-}
+
+	function changeStyle(heart, player){
+		if(player == 1){
+			if(heart.style.color == "green")
+				heart.style.color = "grey";
+			else heart.style.color = "green";
+		}else{
+			if(heart.style.color == "rgb(20, 155, 223)")
+				heart.style.color = "grey";
+			else heart.style.color = "#149bdf";
+		}
+	}
 
 	function drawRadar(){
 		chart = Highcharts.chart('container', radarOptions);
 	}
 	
 	function showHideBox(checkbox, number){
-		box = document.getElementById("skillBox"+number+"market");
-		
+		box = document.getElementById("skillBox"+number+eval('radio'+number));
+				
 		if(checkbox.checked && box.style.display == "none")
 			box.style.display = "block"; 
 		else if(!checkbox.checked && box.style.display == "block")
 			box.style.display = "none";
 	}
 	
-	
 	function retrieveMarketPlayer(playerNumber){
-		console.log(document.cookie);
+		//user logged
 		if (document.cookie.length > 0){
 			var login = document.cookie.indexOf('htRadarOauthToken=');
 			if (login == -1){
@@ -421,9 +495,10 @@ function changeStyle(heart, player){
             type: "POST",
             url: 'retrievePlayer.php',
 			dataType: "xml",
-            data: {playerID: id, playerNum:playerNumber}
+            data: {playerID: id, playerNum:playerNumber, option: 'market'}
           }).done(function( a, e, o) {
 			  if(o.responseXML == null){
+				  
 				  document.getElementById("danger-player-"+playerNumber).style.display = 'block';
 				  setInterval(function(){ document.getElementById("danger-player-"+playerNumber).style.display = 'none'; }, 5000);
 				  return;
@@ -437,22 +512,10 @@ function changeStyle(heart, player){
 						return value;
 					}
 				});
-			  
-			  var stringArray = o.responseXML.getElementsByTagName("serie")[0].innerHTML;
-			  stringArray = stringArray.substring(1, stringArray.length-1);
-			  numberArray = stringArray.split(",").map(Number);
-			  //insert data directly in the radar options
-			  radarOptions.series[playerNumber-1].data = numberArray;
-			  
-			  //save the information in the util object 
-			  radarSkill[playerNumber] = {};
-			  radarSkillName = radarOptions.xAxis.categories;
-			  for(i=0;i<numberArray.length;i++){
-				  radarSkill[playerNumber][radarSkillName[i]] = numberArray[i];
-			  }
-			  radarOptions.series[playerNumber-1].name = o.responseXML.getElementsByTagName("name")[0].innerHTML;
-			  drawRadar();			  
+				
+				recomputeValue(playerNumber, 'other'); 
             }).error(function(err){
+				console.log(err);
 				  document.getElementById("danger-player-"+playerNumber).style.display = 'block';
 				  setInterval(function(){ document.getElementById("danger-player-"+playerNumber).style.display = 'none'; }, 5000);
 				  return;
@@ -464,5 +527,70 @@ function changeStyle(heart, player){
 		}
 	}	
 	
+	function retrieveTeams(player){
+		
+		$.ajax({
+            type: "POST",
+            url: 'retrieveTeams.php'
+          }).done(function( a, e, o) {
+			  if(o.responseText == null){
+				  document.getElementById("danger-team-"+player).style.display = 'block';
+				  setInterval(function(){ document.getElementById("danger-team-"+player).style.display = 'none'; }, 5000);
+				  return;
+			  }
+			  document.getElementById("selectPlayer"+player).innerHTML = o.responseText;
+			  $('#selectPlayer'+player).selectpicker('refresh');
+
+            }).error(function(err){
+				console.log(err.responseText);
+				console.log(err);
+				  document.getElementById("danger-team-"+player).style.display = 'block';
+				  setInterval(function(){ document.getElementById("danger-team-"+player).style.display = 'none'; }, 5000);
+				  return;
+			});
+	}
+	
+	function retrieveSelectPlayer(sel, player){
+		
+		if (document.cookie.length > 0){
+			var login = document.cookie.indexOf('htRadarOauthToken=');
+			if (login == -1){
+				document.getElementById("danger-retrieve-"+playerNumber).style.display = 'block';
+                setInterval(function(){ document.getElementById("danger-retrieve-"+playerNumber).style.display = 'none'; }, 5000);
+				return;
+			}
+		}
+		
+		selectedOption = sel.options.item(sel.selectedIndex);
+		id = selectedOption.getAttribute("data-id");
+		
+		$.ajax({
+            type: "POST",
+            url: 'retrievePlayer.php',
+			dataType: "xml",
+            data: {playerID: id, playerNum:player, option: 'select'}
+          }).done(function( a, e, o) {
+			  if(o.responseXML == null){
+				  document.getElementById("danger-team-"+player).style.display = 'block';
+				  setInterval(function(){ document.getElementById("danger-team-"+player).style.display = 'none'; }, 5000);
+				  return;
+			  }
+			  htmlBox = o.responseXML.getElementsByTagName("playerBox")[0].innerHTML;
+			  document.getElementById("player"+player+"boxselect").innerHTML = htmlBox.substring(9, htmlBox.length-3);
+			  document.getElementById("player"+player+"boxselect").style.display='block';
+			  
+			  $(".sliderselect"+player).slider({
+					formatter: function(value) {
+						return value;
+					}
+				});
+				
+				recomputeValue(player, 'other'); 
+            }).error(function(err){
+				  document.getElementById("danger-team-"+player).style.display = 'block';
+				  setInterval(function(){ document.getElementById("danger-team-"+player).style.display = 'none'; }, 5000);
+				  return;
+			});
+	}
 
 </script>
