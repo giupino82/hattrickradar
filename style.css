@@ -192,8 +192,9 @@ z-index: 9;
   top: 0;
   width: 100%;
 }
-.slide-one {background-image: url(img/slide-1.png)}
-.slide-two {background-image: url(img/slide-2.jpg)}
+.slide-one {background-image: url(img/compare.jpg);
+    background-size: inherit;background-position:center 40px;}
+.slide-two {background-image: url(img/slide-1.png)}
 .slide-three {background-image: url(img/slide-3.jpg)}
 .slide-text {color: #fff;font-size: 18px;font-weight: 200}
 .slide-text h2 {

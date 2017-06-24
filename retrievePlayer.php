@@ -6,8 +6,8 @@
 	if(isset($_SESSION['HT'])){
 
 		$config = array(
-			'CONSUMER_KEY' => 'xxxxx',
-			'CONSUMER_SECRET' => 'xxxxx'
+			'CONSUMER_KEY' => 'xxx',
+			'CONSUMER_SECRET' => 'xxx'
 		);
 		$HT = new \PHT\Connection($config);
 		// retrive the $tmpToken saved in previous step
@@ -50,7 +50,7 @@
 			  $player1Description.="<div class='bluePlayer'>";
 		  
 		  $player1Description.="<h2><span id='name".$_POST['playerNum']."' class='".$_POST['option']."".$_POST['playerNum']." player".$_POST['playerNum']."' >".$name."</span></h2><br>";
-		  $player1Description.="<h4>Stamina:  <input type='number' id='stamina".$_POST['playerNum']."' min='1' max='9' class='".$_POST['option']."".$_POST['playerNum']." player".$_POST['playerNum']." slider slider".$_POST['option']."".$_POST['playerNum']."  char".$_POST['playerNum']."' onchange=\"recomputeValue(".$_POST['playerNum'].", 'other')\" value=".$stamina."></h4><br>";
+		  $player1Description.="<h4>Stamina:  <input type='number' id='stamina".$_POST['playerNum']."' min='1' max='9' class='".$_POST['option']."".$_POST['playerNum']." player".$_POST['playerNum']." slider slider".$_POST['option']."".$_POST['playerNum']."  char".$_POST['playerNum']."' onchange=\"recomputeValue(".$_POST['playerNum'].", 'other')\" data-slider-value=".$stamina."></h4><br>";
 		  $player1Description.="<h4>Player form <br><input id='form".$_POST['playerNum']."' class='".$_POST['option']."".$_POST['playerNum']." player".$_POST['playerNum']." slider  slider".$_POST['option']."".$_POST['playerNum']." char".$_POST['playerNum']."' onchange=\"recomputeValue(".$_POST['playerNum'].", 'other')\" type='text' data-slider-min='1' data-slider-max='8' data-slider-step='1' data-slider-value='".$form."'/><br>";
 		  $player1Description.="<h4>Experience <br><input id='experience".$_POST['playerNum']."' class='".$_POST['option']."".$_POST['playerNum']." player".$_POST['playerNum']." slider  slider".$_POST['option']."".$_POST['playerNum']." char".$_POST['playerNum']."'  onchange=\"recomputeValue(".$_POST['playerNum'].", 'other')\" clatype='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='".$experience."'/><br>";
 		  $player1Description.="<h4>Loyalty <br><input id='loyalty".$_POST['playerNum']."' class='".$_POST['option']."".$_POST['playerNum']." player".$_POST['playerNum']." slider  slider".$_POST['option']."".$_POST['playerNum']." char".$_POST['playerNum']."'  onchange=\"recomputeValue(".$_POST['playerNum'].", 'other')\" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='".$loyalty."'/><br>";

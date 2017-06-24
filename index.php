@@ -6,8 +6,8 @@
 	$cookieTokenSecret = "htRadarOauthTokenSecret";
 
 	$config = array(
-			'CONSUMER_KEY' => 'XXXXXX',
-			'CONSUMER_SECRET' => 'XXXXXX',
+			'CONSUMER_KEY' => 'xxx',
+			'CONSUMER_SECRET' => 'xxx',
 			//'CACHE' => 'apc',
 			//'LOG_TYPE' => 'file',
 			//'LOG_LEVEL' => \PHT\Log\Level::DEBUG,
