@@ -65,15 +65,15 @@
                     <ul class="nav navbar-nav">
                         <li><a href="index.php">Home</a></li>
                         <li><a href="radar.php">Compare players</a></li>
-
-                        <?php
+						
+						<?php
                         if(!isset($_SESSION['HT'])){
                         	echo '<li><a href="login.php">Login</a></li>';
                         } else {
                         	echo '<li><a href="logout.php">Logout</a></li>';
                         }
                         ?>
-
+						
                         <li class="active"><a href="contact.php">Contact</a></li>
                     </ul>
                 </div>  
@@ -81,41 +81,67 @@
         </div>
     </div> <!-- End mainmenu area -->
     
-    <div class="slider-area">
-        <div class="zigzag-bottom"></div>
-    
- <!--   <div class="promo-area">
-        <div class="zigzag-bottom"></div>
-        <!--<div class="container">
-            <div class="row">
-			  <a href="radar.php"  style="color:white">
-                <div class="col-md-4 col-sm-6">
-                    <div class="single-promo">
-                        <i class="fa fa-exchange"></i>
-                        <p>Your Player Vs. Your Player<br/></p>
-                    </div>
-                </div>
-              </a>
-			  <a href="radar.php" style="color:white">
-				<div class="col-md-4 col-sm-6">
-                    <div class="single-promo">
-                        <i class="fa fa-exchange"></i>
-                        <p>Your Player Vs. Player on market</p>
-                    </div>
-                </div>
-			  </a>
-			  <a href="radar.php" style="color:white">
-                <div class="col-md-4 col-sm-6">
-                    <div class="single-promo">
-                        <i class="fa fa-exchange"></i>
-                        <p>Player on market Vs. Player on market</p>
-                    </div>
-                </div>
-			  </a>
-            </div>
-        </div>
-    </div> <!-- End promo area -->
-
+    <div class="container">
+		<div class="row">
+			<div class="col-md-12 text-center"><br>
+				<h2>Giupino</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<a href="https://www.hattrick.org/Club/Manager/?teamId=1691764" class="thumbnail">
+					<img src="img/avatar.jpg">
+				</a>
+			</div>
+			<div class="col-md-8">
+				<p>Computer Engineer, IT consulting, and an embarrassing number of hobbies and passions. <br>
+				Husband (happy) of a wife (<del>un</del>happy) and father of two beautiful children.</p>
+				<p>Follow me on twitter: <a href="https://twitter.com/giupino"> here </a> </p>
+				<p><a href="mailto:secondodevita@gmail.com">Send me a mail</a> </p>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 text-center"><br>
+				<h2>Margar</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<a href="http://martinagarofalo.it" class="thumbnail">
+					<img src="...">
+				</a>
+			</div>
+			<div class="col-md-8">
+				<p>Vedi che vuoi scrivere</p>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 text-center"><br>
+				<h2>Thanks to...</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<p><a href="https://www.hattrick.org"> Hattrick </a><p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<p><a href="https://github.com/jetwitaussi/PHT"> PHT </a> from <a href="https://www.hattrick.org/Club/Manager/?userId=653581" >teles</a><p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<p>GitHub, yes we are <a href="https://github.com/giupino82/hattrickradar"> on it </a> <p>
+			</div>
+		</div>
+	</div>
 
 
     <div class="footer-bottom-area">
@@ -123,7 +149,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="copyright">
-                        <p>&copy; 2017 HTRadar. Coded with <i class="fa fa-heart"></i> by <a href="http://martinagarofalo.it" target="_blank">Martina Garofalo</a> e Giuseppe Garofalo.</p>
+                        <p>&copy; 2017 HTRadar. Coded with <i class="fa fa-heart"></i> by <a href="http://martinagarofalo.it" target="_blank">Martina Garofalo</a> e <a href="contact.php">Giuseppe Garofalo.</a></p>
                     </div>
                 </div>
             </div>
