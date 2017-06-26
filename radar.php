@@ -257,7 +257,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="copyright">
-                        <p>&copy; 2017 HTRadar. Coded with <i class="fa fa-heart"></i> by <a href="http://martinagarofalo.it" target="_blank">Martina Garofalo</a> e <a href="https://www.hattrick.org/Club/Manager/?teamId=1691764" target="_blank">Giuseppe Garofalo.</a></p>
+                        <p>&copy; 2017 HTRadar. Coded with <i class="fa fa-heart"></i> by <a href="http://martinagarofalo.it" target="_blank">Martina Garofalo</a> e <a href="contact.php">Giuseppe Garofalo.</a></p>
                     </div>
                 </div>                               
             </div>
