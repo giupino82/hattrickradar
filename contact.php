@@ -67,6 +67,7 @@
                         <li><a href="radar.php">Compare players</a></li>
 						
 						<?php
+						session_start();
                         if(!isset($_SESSION['HT'])){
                         	echo '<li><a href="login.php">Login</a></li>';
                         } else {
