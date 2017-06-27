@@ -106,17 +106,21 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 text-center"><br>
-				<h2>Margar</h2>
+				<h2>MarGar</h2>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-4">
 				<a href="http://martinagarofalo.it" class="thumbnail">
-					<img src="...">
+					<img src="img/margar.jpg">
 				</a>
 			</div>
 			<div class="col-md-8">
-				<p>Vedi che vuoi scrivere</p>
+				<p>IT master degree, in love with all artificial intelligence technics. <br>
+				Promoter of coding as a form of ART.
+				</p>
+				<p>More about <a href="https://www.linkedin.com/in/martina-garofalo1994">me </a> </p>
+				<p><a href="mailto:margar1994@gmail.com">Send me a mail</a> </p>
 			</div>
 		</div>
 	</div>

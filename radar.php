@@ -237,6 +237,7 @@
 				<div id='skillBox2' style='display:block'>
 					<h4>Keeper <br><input id='Keeper2' class='player2 slider char2 manual2'  onchange="recomputeValue(2, 'Keeper')" type='text' data-slider-min='0' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
 					<h4>Defender <br><input id='Defender2' class='player2 slider char2 manual2'  onchange="recomputeValue(2, 'Defender')" type='text' data-slider-min='0' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
+					<h4>Playmaker <br><input id='Playmaker2' class='player2 slider char2 manual2'  onchange="recomputeValue(2, 'Playmaker')" type='text' data-slider-min='0' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
 					<h4>Passing <br><input id='Passing2' class='player2 slider char2 manual2'  onchange="recomputeValue(2, 'Passing')" type='text' data-slider-min='0' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
 					<h4>Winger <br><input id='Winger2' class='player2 slider char2 manual2'  onchange="recomputeValue(2, 'Winger')" type='text' data-slider-min='0' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
 					<h4>Scorer <br><input id='Scorer2' class='player2 slider char2 manual2'  onchange="recomputeValue(2, 'Scorer')" type='text' data-slider-min='0' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
