@@ -11,7 +11,7 @@ $config = array(
 );
 $HT = new \PHT\Connection($config);
 
-$auth = $HT->getPermanentAuthorization('https://hattrickradar.netsons.org/'); // put your own url
+$auth = $HT->getPermanentAuthorization('http://hattrickradar.netsons.org/'); // put your own url
 //$auth = $HT->getTemporaryAuthorization('http://hattrickradar.altervista.org/index.php');
 
 if ($auth === false) {
