@@ -206,7 +206,6 @@
 						<span class="glyphicon glyphicon-play" aria-hidden="true" style="size:20px" onclick="retrieveMarketPlayer(2);marketFirstRetrieve2=false;"></span>
 					</div>
 				</div>
-				<br>
 				<div id="player2boxmarket" style="display:none">
 				</div>
 			</div>
