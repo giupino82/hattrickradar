@@ -2,8 +2,8 @@
 	require_once 'PHT/autoload.php';
 	session_start();
 
-	$cookieToken = "*****";
-	$cookieTokenSecret = "*****";
+	$cookieToken = "htRadarOauthToken";
+	$cookieTokenSecret = "htRadarOauthTokenSecret";
 
 	$config = array(
 			'CONSUMER_KEY' => '*****',
