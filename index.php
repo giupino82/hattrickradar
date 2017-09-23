@@ -6,8 +6,8 @@
 	$cookieTokenSecret = "htRadarOauthTokenSecret";
 
 	$config = array(
-			'CONSUMER_KEY' => 'xxx',
-			'CONSUMER_SECRET' => 'xxx',
+			'CONSUMER_KEY' => '*****',
+			'CONSUMER_SECRET' => '*****'
 			//'CACHE' => 'apc',
 			//'LOG_TYPE' => 'file',
 			//'LOG_LEVEL' => \PHT\Log\Level::DEBUG,
@@ -91,12 +91,6 @@
                         <h1><a href="index.php">HT<span>Radar</span></a></h1>
                     </div>
                 </div>
-                
-                <!--div class="col-sm-6">
-                    <div class="shopping-item">
-                        <a href="cart.html">Cart - <span class="cart-amunt">$800</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
-                    </div>
-                </div-->
             </div>
         </div>
     </div> <!-- End site branding area -->
@@ -193,65 +187,12 @@
                         </div>
                     </div>
                 </div>
-                <!--<div class="item">
-                    <div class="single-slide">
-                        <div class="slide-bg slide-three"></div>
-                        <div class="slide-text-wrapper">
-                            <div class="slide-text">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-md-6 col-md-offset-6">
-                                            <div class="slide-content">
-                                                <h2>HT Radar</h2>
-                                                <p>Compares two players of your team to see who is the best!</p>
-                                                <a href="radar.php" class="readmore">Learn more</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>-->
             </div>
 
         </div>        
     </div> <!-- End slider area -->
     
- <!--   <div class="promo-area">
-        <div class="zigzag-bottom"></div>
-        <!--<div class="container">
-            <div class="row">
-			  <a href="radar.php"  style="color:white">
-                <div class="col-md-4 col-sm-6">
-                    <div class="single-promo">
-                        <i class="fa fa-exchange"></i>
-                        <p>Your Player Vs. Your Player<br/></p>
-                    </div>
-                </div>
-              </a>
-			  <a href="radar.php" style="color:white">
-				<div class="col-md-4 col-sm-6">
-                    <div class="single-promo">
-                        <i class="fa fa-exchange"></i>
-                        <p>Your Player Vs. Player on market</p>
-                    </div>
-                </div>
-			  </a>
-			  <a href="radar.php" style="color:white">
-                <div class="col-md-4 col-sm-6">
-                    <div class="single-promo">
-                        <i class="fa fa-exchange"></i>
-                        <p>Player on market Vs. Player on market</p>
-                    </div>
-                </div>
-			  </a>
-            </div>
-        </div>
-    </div> <!-- End promo area -->
-
-
-
+ 
     <div class="footer-bottom-area">
         <div class="container">
             <div class="row">

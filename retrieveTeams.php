@@ -16,12 +16,13 @@ OUTPUT:
 
 	include 'PHT/autoload.php';
 	session_start();
+	include_once("analyticstracking.php");
 
 	if(isset($_SESSION['HT'])){
 
 		$config = array(
-			'CONSUMER_KEY' => 'xxxxxxxxx',
-			'CONSUMER_SECRET' => 'xxxxxxxxxx'
+			'CONSUMER_KEY' => '*****',
+			'CONSUMER_SECRET' => '*****'
 		);
 		$HT = new \PHT\Connection($config);
 		// retrive the $tmpToken saved in previous step
@@ -38,10 +39,7 @@ OUTPUT:
 			$teams = $user->getTeams();
 			
 			$select = "";
-			$userTeams = [];
-			$i = 0;
-			$team = $teams->current();
-			while($team != null){
+			foreach($teams as $key=>$team){
 
 				$id = $team->getId();
 				$name = $team->getName();
@@ -55,8 +53,6 @@ OUTPUT:
 					$select .= "<option data-tokens='".$name." ".$namep."' data-id='".$idp."'>".$namep."</option>";
 				}
 				$select .= "</optgroup>";
-				$team = $teams->next();
-				$i++;
 			}
 			
 			echo $select;
