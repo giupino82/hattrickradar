@@ -6,8 +6,8 @@
 	if(isset($_SESSION['HT'])){
 
 		$config = array(
-			'CONSUMER_KEY' => 'xxx',
-			'CONSUMER_SECRET' => 'xxx'
+			'CONSUMER_KEY' => '*****',
+			'CONSUMER_SECRET' => '*****'
 		);
 		$HT = new \PHT\Connection($config);
 		// retrive the $tmpToken saved in previous step
@@ -56,14 +56,17 @@
 		  $player1Description.="<h4>Loyalty <br><input id='loyalty".$_POST['playerNum']."' class='".$_POST['option']."".$_POST['playerNum']." player".$_POST['playerNum']." slider  slider".$_POST['option']."".$_POST['playerNum']." char".$_POST['playerNum']."'  onchange=\"recomputeValue(".$_POST['playerNum'].", 'other')\" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='".$loyalty."'/><br>";
 		  $player1Description.="<h4>Mother club bonus  <i   id='motherClubBonus".$_POST['playerNum']."' class='".$_POST['option']."".$_POST['playerNum']." player".$_POST['playerNum']." fa fa-heart '";
 		  $player1Description.="style='color:";
-		  if($_POST['option']=='select'){
+		  
+		  //if($_POST['option']=='select'){
 			  if($motherClubBonus){//mother club
 				  if($_POST['playerNum']==1)
 					  $player1Description.="green' ";
 				 else $player1Description.="rgb(20, 155, 223)' ";
 			  }
-		  }else 
-			  $player1Description.="grey' ";
+		  //}
+		  else 
+			  $player1Description.="#b3b3b3' ";
+		  
 		  $player1Description.="onclick=\"changeStyle(this,".$_POST['playerNum'].");recomputeValue(".$_POST['playerNum'].", 'other')\"></i> </h4>";
 
 		  $player1Description.="<div class='checkbox'><label><input type='checkbox' onclick='showHideBox(this,".$_POST['playerNum'].")'>Modify skills</label></div><br>";

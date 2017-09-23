@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	include_once("analyticstracking.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -149,7 +150,7 @@
 				<h4>Player form <br><input id='form1' class='player1 slider char1 manual1' onchange="recomputeValue(1, 'other')" type='text' data-slider-min='1' data-slider-max='8' data-slider-step='1' data-slider-value='1'/><br>
 				<h4>Experience <br><input id='experience1' class='player1 slider char1 manual1'  onchange="recomputeValue(1, 'other')" clatype='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
 				<h4>Loyalty <br><input id='loyalty1' class='player1 slider char1 manual1'  onchange="recomputeValue(1, 'other')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-				<h4>Mother club bonus  <i class='player1 fa fa-heart manual1' id="motherClubBonus1" style='color:grey' onclick="changeStyle(this,1);recomputeValue(1, 'other')"></i></h4>
+				<h4>Mother club bonus  <i class='player1 fa fa-heart manual1' id="motherClubBonus1" style='color:#b3b3b3' onclick="changeStyle(this,1);recomputeValue(1, 'other')"></i></h4>
 				<div id='skillBox1' style='display:block'>
 					<h4>Keeper <br><input id='Keeper1' class='player1 slider char1 manual1'  onchange="recomputeValue(1, 'Keeper')" type='text' data-slider-min='0' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
 					<h4>Defender <br><input id='Defender1' class='player1 slider char1 manual1'  onchange="recomputeValue(1, 'Defender')" type='text' data-slider-min='0' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
@@ -206,7 +207,6 @@
 						<span class="glyphicon glyphicon-play" aria-hidden="true" style="size:20px" onclick="retrieveMarketPlayer(2);marketFirstRetrieve2=false;"></span>
 					</div>
 				</div>
-				<br>
 				<div id="player2boxmarket" style="display:none">
 				</div>
 			</div>
@@ -233,7 +233,7 @@
 				<h4>Player form <br><input id='form2' class='player2 slider char2 manual2' onchange="recomputeValue(2, 'other')" type='text' data-slider-min='1' data-slider-max='8' data-slider-step='1' data-slider-value='1'/><br>
 				<h4>Experience <br><input id='experience2' class='player2 slider char2 manual2'  onchange="recomputeValue(2, 'other')" clatype='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
 				<h4>Loyalty <br><input id='loyalty2' class='player2 slider char2 manual2'  onchange="recomputeValue(2, 'other')" type='text' data-slider-min='1' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
-				<h4>Mother club bonus  <i class='player2 fa fa-heart manual2' id="motherClubBonus2" style='color:grey' onclick="changeStyle(this,2);recomputeValue(2, 'other')"></i></h4>
+				<h4>Mother club bonus  <i class='player2 fa fa-heart manual2' id="motherClubBonus2" style='color:#b3b3b3' onclick="changeStyle(this,2);recomputeValue(2, 'other')"></i></h4>
 				<div id='skillBox2' style='display:block'>
 					<h4>Keeper <br><input id='Keeper2' class='player2 slider char2 manual2'  onchange="recomputeValue(2, 'Keeper')" type='text' data-slider-min='0' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
 					<h4>Defender <br><input id='Defender2' class='player2 slider char2 manual2'  onchange="recomputeValue(2, 'Defender')" type='text' data-slider-min='0' data-slider-max='20' data-slider-step='1' data-slider-value='1'/><br>
@@ -396,8 +396,7 @@
 					return;
 		}
 		var playerDetails = document.getElementsByClassName(eval('radio'+player)+""+player);
-		
-		if(playerDetails["motherClubBonus"+player].style.color == "grey")
+		if(playerDetails["motherClubBonus"+player].style.color == "#b3b3b3")
 			motherClubBonus = 0;
 		else 
 			motherClubBonus = 0.5;
@@ -459,11 +458,11 @@
 	function changeStyle(heart, player){
 		if(player == 1){
 			if(heart.style.color == "green")
-				heart.style.color = "grey";
+				heart.style.color = "#b3b3b3";
 			else heart.style.color = "green";
 		}else{
 			if(heart.style.color == "rgb(20, 155, 223)")
-				heart.style.color = "grey";
+				heart.style.color = "#b3b3b3";
 			else heart.style.color = "#149bdf";
 		}
 	}

@@ -116,7 +116,7 @@
 				</a>
 			</div>
 			<div class="col-md-8">
-				<p>IT master degree, in love with all artificial intelligence technics. <br>
+				<p>IT master degree, in love with all artificial intelligence techniques. <br>
 				Promoter of coding as a form of ART.
 				</p>
 				<p>More about <a href="https://www.linkedin.com/in/martina-garofalo1994">me </a> </p>
