@@ -6,8 +6,8 @@
 	if(isset($_SESSION['HT'])){
 
 		$config = array(
-			'CONSUMER_KEY' => '*****',
-			'CONSUMER_SECRET' => '*****'
+			'CONSUMER_KEY' => '******',
+			'CONSUMER_SECRET' => '******'
 		);
 		$HT = new \PHT\Connection($config);
 		// retrive the $tmpToken saved in previous step
@@ -65,7 +65,7 @@
 			  }
 		  //}
 		  else 
-			  $player1Description.="#b3b3b3' ";
+			  $player1Description.="rgb(179, 179, 179)' ";
 		  
 		  $player1Description.="onclick=\"changeStyle(this,".$_POST['playerNum'].");recomputeValue(".$_POST['playerNum'].", 'other')\"></i> </h4>";
 
